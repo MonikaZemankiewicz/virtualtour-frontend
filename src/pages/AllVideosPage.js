@@ -1,11 +1,15 @@
-import './App.css';
+import React from 'react'
+import Layout from '../components/Layout';
+import VideoList from '../components/VideoList';
 import { useState, useEffect } from 'react';
-import VideoList from './components/VideoList';
-import Layout from './components/Layout';
+import Form from '../components/Form'
 
-function App() {
 
+
+function AllVideos() {
   const[videos, setVideos] = useState([])
+  const[editVideo, setEditVideo] = useState(null)
+
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/videos', {
@@ -21,13 +25,16 @@ function App() {
     .catch(error => console.log(error))
   }, [])
 
+  const editBtn = (video) => {
+    setEditVideo(video)
+  }
+
   return (
-    <div className="App">
-      <Layout>
-      </Layout>
-      
-    </div>
-  );
+    <Layout>
+        <VideoList videos = {videos} editBtn = {editBtn}></VideoList>
+        {/* <Form video = {editVideo}/> */}
+    </Layout>
+  )
 }
 
-export default App;
+export default AllVideos

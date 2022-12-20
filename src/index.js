@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import { Route, BrowserRouter } from 'react-router-dom';
+import Form from './components/Form';
+import Layout from './components/Layout';
+import AllVideosPage from './pages/AllVideosPage';
+import SignInPage from './pages/SignInPage';
+
+function Router() {
+  return(
+    <BrowserRouter>
+
+      <Route path = '/' exact component = {App}/>
+      <Route path = '/login' exact component = {SignInPage}/>
+      <Route path = '/videos' exact component = {AllVideosPage}/>
+
+    </BrowserRouter>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router />
   </React.StrictMode>
 );
 
