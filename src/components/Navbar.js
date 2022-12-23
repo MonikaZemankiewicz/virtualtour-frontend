@@ -26,7 +26,9 @@ function OffcanvasExample() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/videos">All Videos</Nav.Link>
+                  <Nav.Link href="/videos">Images</Nav.Link>
+                  <Nav.Link href="/videos">Videos</Nav.Link>
+                  <Nav.Link href="/videos">Virtual Tours</Nav.Link>
                   {/* <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-sm`}

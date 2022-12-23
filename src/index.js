@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Route, BrowserRouter } from 'react-router-dom';
-import Form from './components/Form';
 import Layout from './components/Layout';
 import AllVideosPage from './pages/AllVideosPage';
 import SignInPage from './pages/SignInPage';

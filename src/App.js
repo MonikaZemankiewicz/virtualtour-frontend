@@ -1,29 +1,17 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import VideoList from './components/VideoList';
 import Layout from './components/Layout';
 
 function App() {
 
-  const[videos, setVideos] = useState([])
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/videos', {
-      'method': 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token 8427f0bfaf16ebda450f89f5988449f6cb67e17f'
-      }
-
-    })
-    .then(resp => resp.json())
-    .then(resp => setVideos(resp))
-    .catch(error => console.log(error))
-  }, [])
+  
 
   return (
     <div className="App">
       <Layout>
+      <script src="https://360player.io/static/dist/scripts/embed.js" defer></script>
+            <iframe src="https://360player.io/p/k6f7rb/" frameborder="0" width="560" height="315"
+                allow="fullscreen; xr-spatial-tracking" data-token="k6f7rb"></iframe>
       </Layout>
       
     </div>

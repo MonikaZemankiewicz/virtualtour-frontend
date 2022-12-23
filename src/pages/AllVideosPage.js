@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout';
 import VideoList from '../components/VideoList';
 import { useState, useEffect } from 'react';
-import Form from '../components/Form'
+
 
 
 
