@@ -1,23 +1,27 @@
 import React from 'react'
 import '../index.css';
-import ImageListItem from './components/ImageListItem'
+import { Row, CardGroup } from 'reactstrap';
+
+import ImageListItem from './ImageListItem'
 
 
 
 function ImageList(props) {
 
-  const editBtn = (video) => {
-    props.editBtn(video)
-  }
-
   return (
-    <div>
-      {props.videos && props.videos.map(video => {
-        return(
-        <ImageListItem item={video} key={video.id} />
-        )
-      })}
-    </div>
+      <div className="main">
+        <ul className="cards">
+        {props.images && props.images.map(image => {
+          return(
+              <ImageListItem image={image} key={image.id} />
+          )
+        })}
+        </ul>
+      </div>
+    
+      
+      
+    
   )
 }
 

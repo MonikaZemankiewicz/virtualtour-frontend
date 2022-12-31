@@ -9,7 +9,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 function OffcanvasExample() {
   return (
     <>
-        <Navbar key='sm' bg="light" expand='sm' className="mb-3">
+        <Navbar key='sm' bg="dark" variant="dark" expand='sm' className="mb-3">
           <Container fluid>
             <Navbar.Brand href="#">3D Videos</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
@@ -26,22 +26,15 @@ function OffcanvasExample() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/videos">Images</Nav.Link>
-                  <Nav.Link href="/videos">Videos</Nav.Link>
-                  <Nav.Link href="/videos">Virtual Tours</Nav.Link>
-                  {/* <NavDropdown
-                    title="Dropdown"
+                  { <NavDropdown
+                    title="360"
                     id={`offcanvasNavbarDropdown-expand-sm`}
                   >
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/images">Images</NavDropdown.Item>
+                    <NavDropdown.Item href="/videos">Videos</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown> */}
+                    <NavDropdown.Item href="#action5">Virtual Tours</NavDropdown.Item>
+                  </NavDropdown> }
                   <Nav.Link href="/login">Log in</Nav.Link>
                 </Nav>
                 <Form className="d-flex">

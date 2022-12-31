@@ -8,7 +8,9 @@ import { useState, useEffect } from 'react';
 function AllVideos() {
   return (
     <Layout>
-        <SignIn></SignIn>
+      <div className='page'>
+      <SignIn></SignIn>
+      </div>
     </Layout>
   )
 }

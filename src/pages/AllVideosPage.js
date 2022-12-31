@@ -31,8 +31,10 @@ function AllVideos() {
 
   return (
     <Layout>
+      <div className='page'>
         <VideoList videos = {videos} editBtn = {editBtn}></VideoList>
         {/* <Form video = {editVideo}/> */}
+        </div>
     </Layout>
   )
 }
