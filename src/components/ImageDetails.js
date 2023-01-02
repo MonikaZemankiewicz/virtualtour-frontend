@@ -9,11 +9,6 @@ import { useParams } from "react-router-dom";
 
 
 function ImageDetails(props){
-
-    const editBtn = (image) => {
-        props.editBtn(image)
-    }
-    
         return (
             <Row className="ContentItem">
              <Col xs="3"/>
@@ -37,16 +32,6 @@ function ImageDetails(props){
                             <CardText>
                                 {props.image.description}
                             </CardText>
-                            <CardFooter>
-                                <div className = 'edit_buttons_div'>
-                                    <button className = "btn btn-outline-primary" onClick = {() => editBtn(props.image)}>
-                                        Update
-                                    </button>
-                                    <button className = "btn btn-outline-danger">
-                                        Delete
-                                    </button>
-                                </div>
-                            </CardFooter>
                         </CardBody>
                     </Card>
                 </Col> 

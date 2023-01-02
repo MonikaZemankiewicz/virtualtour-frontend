@@ -27,6 +27,19 @@ function AllImages() {
   const editBtn = (image) => {
     setEditImage(image)
   }
+
+  const updatedInformation = (image) => {
+    const new_image = images.map(current_image => {
+      if(current_image.id === image.id) {
+        return image;
+      }
+      else {
+        return current_image;
+      }
+    })
+
+    setImages(new_image)
+  }
   
 
   return (
@@ -34,7 +47,7 @@ function AllImages() {
       <div className='page'>
         <ImageList images = {images} editBtn = {editBtn}></ImageList>
         {editImage ? 
-              <ImageForm image = {editImage}></ImageForm>
+              <ImageForm image = {editImage} updatedInformation = {updatedInformation}></ImageForm>
               : null
         }
       </div>

@@ -12,11 +12,11 @@ function ImageListItem(props) {
                     </div>
                     <div className="card_content">
                         <h2 className="card_title">{props.image.title}</h2>
-                        {/* <p className="card_text">{props.image.description}</p> */}
+                        <p className="card_text">{props.image.description}</p>
                         <div className="image_list_tags">
-                        {props.image.tags && props.image.tags.map(tag => {
+                        {props.image.tags && props.image.tags.map((tag, index) => {
                             return(
-                                <span>#{tag}</span>
+                                <span key={index}>#{tag}</span>
                             )
                         })}
                         </div>

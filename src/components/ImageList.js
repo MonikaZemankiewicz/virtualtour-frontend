@@ -13,7 +13,8 @@ function ImageList(props) {
 }
 
   return (
-      <div className="main">
+    <div className="gallery_padding">
+       <div className="main">
         <ul className="cards">
         {props.images && props.images.map(image => {
           return(
@@ -22,6 +23,8 @@ function ImageList(props) {
         })}
         </ul>
       </div>
+    </div>
+     
     
       
       

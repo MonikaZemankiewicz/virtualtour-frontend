@@ -1,10 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout';
-import ImageList from '../components/ImageList';
 import { useState, useEffect } from 'react';
 import ImageDetails from '../components/ImageDetails';
 import { useParams } from "react-router-dom";
-import ImageForm from '../components/ImageForm'
 
 function AllImages() {
   const { id } = useParams()
@@ -35,7 +33,6 @@ const editBtn = (image) => {
     <Layout>
       <div className='page'>
         <ImageDetails image = {image} editBtn = {editBtn}></ImageDetails>
-        <ImageForm image = {editImage}></ImageForm>
       </div>
     </Layout>
   )

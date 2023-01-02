@@ -10,7 +10,6 @@ body {
 
 .page{
   min-height: 90vh;
-  padding: 5%;
 }
 
 code {
@@ -32,15 +31,13 @@ code {
   box-sizing: border-box;
 }
 
-html {
-  background-color: #ecf9ff;
-}
-
-
-
 .main{
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.gallery_padding {
+  margin: 3rem 1rem;
 }
 
 h1 {
@@ -163,6 +160,20 @@ h1 {
   margin-top: 1rem;
 }
 
+/* Form */
+
+.form {
+  background-color:rgb(33,37,41);
+  padding: 2rem;
+}
+
 .form-label {
   margin-top: 1rem;
+  color: white;
 }
+
+.form_divider {
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+}
+
