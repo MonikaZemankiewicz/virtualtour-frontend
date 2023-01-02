@@ -2,8 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout';
 import ImageList from '../components/ImageList';
 import { useState, useEffect } from 'react';
-
-
+import ImageForm from '../components/ImageForm'
 
 
 function AllImages() {
@@ -28,12 +27,16 @@ function AllImages() {
   const editBtn = (image) => {
     setEditImage(image)
   }
+  
 
   return (
     <Layout>
       <div className='page'>
         <ImageList images = {images} editBtn = {editBtn}></ImageList>
-        {/* <Form video = {editVideo}/> */}
+        {editImage ? 
+              <ImageForm image = {editImage}></ImageForm>
+              : null
+        }
       </div>
         
     </Layout>

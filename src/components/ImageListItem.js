@@ -12,16 +12,26 @@ function ImageListItem(props) {
                     </div>
                     <div className="card_content">
                         <h2 className="card_title">{props.image.title}</h2>
-                        <p className="card_text">{props.image.description}</p>
-                    </div>
-                    <div className="image_list_tags">
+                        {/* <p className="card_text">{props.image.description}</p> */}
+                        <div className="image_list_tags">
                         {props.image.tags && props.image.tags.map(tag => {
                             return(
                                 <span>#{tag}</span>
                             )
                         })}
+                        </div>
                     </div>
+                    <div className = 'edit_buttons_div'>
+                            <button className = "btn btn-sm btn-outline-primary" onClick = {() => props.editBtn(props.image)}>
+                                Update
+                            </button>
+                            <button className = "btn btn-sm btn-outline-danger">
+                                Delete
+                            </button>
+                        </div>
+
                 </div>
+
             </li> 
             
         )

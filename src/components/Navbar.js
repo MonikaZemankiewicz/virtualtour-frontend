@@ -11,7 +11,7 @@ function OffcanvasExample() {
     <>
         <Navbar key='sm' bg="dark" variant="dark" expand='sm' className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">3D Videos</Navbar.Brand>
+            <Navbar.Brand href="/">360 Media</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-sm`}

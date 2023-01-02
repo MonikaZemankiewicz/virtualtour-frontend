@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
+import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } from 'reactstrap';
 import '../index.css';
 import { Pannellum } from "pannellum-react";
 import axios from "axios";    
@@ -9,6 +9,10 @@ import { useParams } from "react-router-dom";
 
 
 function ImageDetails(props){
+
+    const editBtn = (image) => {
+        props.editBtn(image)
+    }
     
         return (
             <Row className="ContentItem">
@@ -33,6 +37,16 @@ function ImageDetails(props){
                             <CardText>
                                 {props.image.description}
                             </CardText>
+                            <CardFooter>
+                                <div className = 'edit_buttons_div'>
+                                    <button className = "btn btn-outline-primary" onClick = {() => editBtn(props.image)}>
+                                        Update
+                                    </button>
+                                    <button className = "btn btn-outline-danger">
+                                        Delete
+                                    </button>
+                                </div>
+                            </CardFooter>
                         </CardBody>
                     </Card>
                 </Col> 

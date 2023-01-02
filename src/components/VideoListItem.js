@@ -12,14 +12,15 @@ function VideoListItem(props) {
                     <div className="card_content">
                         <h2 className="card_title">{props.video.title}</h2>
                         <p className="card_text">{props.video.description}</p>
-                    </div>
-                    {/* <div className="image_list_tags">
-                        {props.image.tags && props.video.tags.map(tag => {
+                        <div className="image_list_tags">
+                        {props.video.tags && props.video.tags.map(tag => {
                             return(
                                 <span>#{tag}</span>
                             )
                         })}
-                    </div> */}
+                    </div>
+                    </div>
+                    
                 </div>
             </li> 
             
