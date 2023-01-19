@@ -1,14 +1,20 @@
 import React from 'react'
 import { Button, Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } from 'reactstrap';
 import '../index.css';
+import ProgressiveImage from 'react-progressive-image';
 
 function ImageListItem(props) {
         return (
             <li className="cards_item">
-                <div className="card">
+                <div className="card image_card">
                     <a className="overlay" href={'/images/' + props.image.id}></a>
                     <div className="card_image">
-                        <img src={props.image.image}/>
+                    <ProgressiveImage src={props.image.image} placeholder="tiny-image.jpg">
+                        {src => (
+                            <img src={src} alt="image" />
+                        )}
+                    </ProgressiveImage>
+                        {/* <img src={props.image.image} loading="lazy"/> */}
                     </div>
                     <div className="card_content">
                         <h2 className="card_title">{props.image.title}</h2>
@@ -22,10 +28,10 @@ function ImageListItem(props) {
                         </div>
                     </div>
                     <div className = 'edit_buttons_div'>
-                            <button className = "btn btn-sm btn-outline-primary" onClick = {() => props.editBtn(props.image)}>
+                            <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.image)}>
                                 Update
                             </button>
-                            <button className = "btn btn-sm btn-outline-danger">
+                            <button className = "btn btn-sm delete_button" >
                                 Delete
                             </button>
                         </div>

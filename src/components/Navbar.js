@@ -9,7 +9,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 function OffcanvasExample() {
   return (
     <>
-        <Navbar key='sm' bg="dark" variant="dark" expand='sm' className="mb-3">
+        <Navbar key='sm' variant="dark" expand='sm'>
           <Container fluid>
             <Navbar.Brand href="/">360 Media</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />

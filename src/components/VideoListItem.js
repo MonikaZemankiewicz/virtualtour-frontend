@@ -1,5 +1,6 @@
 import React from 'react'
 import '../index.css';
+import ProgressiveImage from 'react-progressive-image';
 
 function VideoListItem(props) {
         return (
@@ -7,7 +8,11 @@ function VideoListItem(props) {
                 <div className="card">
                     <a className="overlay" href={'/videos/' + props.video.id}></a>
                     <div className="card_image">
-                        <img src={props.video.cover}/>
+                        <ProgressiveImage src={props.video.cover} placeholder="tiny-image.jpg">
+                            {src => (
+                                <img src={src} alt="image" />
+                            )}
+                        </ProgressiveImage>
                     </div>
                     <div className="card_content">
                         <h2 className="card_title">{props.video.title}</h2>

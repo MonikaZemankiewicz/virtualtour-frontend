@@ -2,7 +2,7 @@ import React from 'react'
 import '../index.css';
 import { Row, CardGroup } from 'reactstrap';
 import ImageListItem from './ImageListItem'
-import ImageForm from './ImageForm';
+import ImageForm from './EditImageForm';
 
 
 
@@ -10,7 +10,7 @@ function ImageList(props) {
 
   const editBtn = (image) => {
     props.editBtn(image)
-}
+  }
 
   return (
     <div className="gallery_padding">
@@ -23,12 +23,7 @@ function ImageList(props) {
         })}
         </ul>
       </div>
-    </div>
-     
-    
-      
-      
-    
+    </div> 
   )
 }
 

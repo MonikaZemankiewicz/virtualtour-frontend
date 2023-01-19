@@ -1,20 +1,16 @@
-import { useState, useEffect } from 'react';
-import Layout from '../components/Layout';
+import React from 'react'
+import Layout from '../components/Layout'
+import ImageUploadForm from '../components/ImageUploadForm'
 
 function Home() {
-
-  
-
   return (
-    <div className="App">
-      <Layout>
-        <div className='page'>
+    <Layout>
+      <div className='page'>
+        <ImageUploadForm/>
+      </div>
         
-        </div>
-      </Layout>
-      
-    </div>
-  );
+    </Layout>
+  )
 }
 
-export default Home;
+export default Home

@@ -2,12 +2,13 @@ import React from 'react'
 import Layout from '../components/Layout';
 import ImageList from '../components/ImageList';
 import { useState, useEffect } from 'react';
-import ImageForm from '../components/ImageForm'
+import EditImageForm from '../components/EditImageForm'
 
 
 function AllImages() {
   const[images, setImages] = useState([])
   const[editImage, setEditImage] = useState(null)
+  const[deleteImage, setDeleteImage] = useState(null)
 
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function AllImages() {
     setEditImage(image)
   }
 
+
   const updatedInformation = (image) => {
     const new_image = images.map(current_image => {
       if(current_image.id === image.id) {
@@ -47,7 +49,7 @@ function AllImages() {
       <div className='page'>
         <ImageList images = {images} editBtn = {editBtn}></ImageList>
         {editImage ? 
-              <ImageForm image = {editImage} updatedInformation = {updatedInformation}></ImageForm>
+              <EditImageForm image = {editImage} updatedInformation = {updatedInformation}></EditImageForm>
               : null
         }
       </div>
