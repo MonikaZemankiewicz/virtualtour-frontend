@@ -3,12 +3,14 @@ import Layout from '../components/Layout';
 import ImageList from '../components/ImageList';
 import { useState, useEffect } from 'react';
 import EditImageForm from '../components/EditImageForm'
+import {useCookies} from 'react-cookie'
 
 
 function AllImages() {
   const[images, setImages] = useState([])
   const[editImage, setEditImage] = useState(null)
-  const[deleteImage, setDeleteImage] = useState(null)
+  const [token] = useCookies(['mytoken'])
+
 
 
   useEffect(() => {
@@ -16,7 +18,7 @@ function AllImages() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Token 8427f0bfaf16ebda450f89f5988449f6cb67e17f'
+        'Authorization': `Token ${token['mytoken']}`
       }
 
     })
