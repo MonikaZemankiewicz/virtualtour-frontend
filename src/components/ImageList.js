@@ -1,15 +1,23 @@
 import React from 'react'
 import '../index.css';
-import { Row, CardGroup } from 'reactstrap';
 import ImageListItem from './ImageListItem'
-import ImageForm from './EditImageForm';
+import APIService from '../APIService';
+import useCookies from 'react-cookie/cjs/useCookies';
 
 
 
 function ImageList(props) {
+  const [token] = useCookies(['mytoken'])
 
   const editBtn = (image) => {
     props.editBtn(image)
+  }
+
+  const deleteBtn = (image) => {
+    APIService.DeleteImage(image.id, token['mytoken'])
+     .then(() => props.deleteBtn(image))
+     .catch(error => console.log(error))
+
   }
 
   return (
@@ -18,7 +26,7 @@ function ImageList(props) {
         <ul className="cards">
         {props.images && props.images.map(image => {
           return(
-              <ImageListItem image={image} key={image.id} editBtn = {editBtn} />
+              <ImageListItem image={image} key={image.id} editBtn = {editBtn} deleteBtn = {deleteBtn}/>
           )
         })}
         </ul>

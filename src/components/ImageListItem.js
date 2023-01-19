@@ -1,8 +1,6 @@
 import React from 'react'
-import { Button, Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } from 'reactstrap';
 import '../index.css';
 import ProgressiveImage from 'react-progressive-image';
-
 function ImageListItem(props) {
         return (
             <li className="cards_item">
@@ -31,7 +29,7 @@ function ImageListItem(props) {
                             <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.image)}>
                                 Update
                             </button>
-                            <button className = "btn btn-sm delete_button" >
+                            <button className = "btn btn-sm delete_button" onClick = {() => props.deleteBtn(props.image)}>
                                 Delete
                             </button>
                         </div>

@@ -4,37 +4,28 @@ import AddImage from './AddImage';
 import React from 'react';
 import axios from 'axios';
 import { Col } from 'reactstrap';
+import useCookies from 'react-cookie/cjs/useCookies';
 
-class ImageUploadForm extends React.Component {
-  state = {
-    title: '',
-    description: '',
-    image: null
-  };
+function ImageUploadForm(props) {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [image, setImage] = useState(null)
+  const [token] = useCookies(['mytoken'])
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  };
 
-  handleImageChange = (e) => {
-    this.setState({
-      image: e.target.files[0]
-    })
-  };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     let form_data = new FormData();
-    form_data.append('image', this.state.image, this.state.image.name);
-    form_data.append('title', this.state.title);
-    form_data.append('description', this.state.description);
+    form_data.append('image', image, image.name);
+    form_data.append('title', title);
+    form_data.append('description', description);
     let url = 'http://localhost:8000/api/images/';
     axios.post(url, form_data, {
       headers: {
-        'content-type': 'multipart/form-data'
+        'content-type': 'multipart/form-data',
+        'Authorization': `Token ${token['mytoken']}` 
+
       }
     })
         .then(res => {
@@ -42,8 +33,7 @@ class ImageUploadForm extends React.Component {
         })
         .catch(err => console.log(err))
   };
-  
-  render() {
+
     return (
       <div className="App">
         <Layout>
@@ -53,27 +43,26 @@ class ImageUploadForm extends React.Component {
                   <label htmlFor = "title" className='form-label'>
                       Title
                   </label>
-                  <input type = "text" className='form-control' id="title" placeholder='Please enter the title' value={this.state.title} onChange={this.handleChange} required></input>
+                  <input type = "text" className='form-control' id="title" placeholder='Please enter the title' value={title} onChange = {e => setTitle(e.target.value)} required></input>
                   
                   
                   <label htmlFor = "title" className='form-label'>
                       Description
                   </label>
-                  <textarea className='form-control' id="description" placeholder='Please enter the description' rows = "5" value={this.state.description} onChange={this.handleChange} required></textarea>
+                  <textarea className='form-control' id="description" placeholder='Please enter the description' rows = "5" value={description} onChange = {e => setDescription(e.target.value)} required></textarea>
 
                   <label htmlFor = "title" className='form-label'>
                       Image
                   </label>
-                  <input type = "file" className='form-control' id="image" accept="image/png, image/jpeg"  onChange={this.handleImageChange} required/>
-                  <button onClick = {this.handleSubmit} className='btn btn-success update_image_button'>Update Image</button>
+                  <input type = "file" className='form-control' id="image" accept="image/png, image/jpeg"  onChange = {e => setImage(e.target.files[0])} required/>
+                  <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Update Image</button>
                 </div>
               </div>
           </div>  
         </Layout>
         
       </div>
-    );
-    }
+    )
 }
 
 export default ImageUploadForm;

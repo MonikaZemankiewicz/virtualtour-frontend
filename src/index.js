@@ -10,22 +10,24 @@ import AllImagesPage from './pages/AllImagesPage';
 import SignInPage from './pages/SignInPage';
 import ImageDetailsPage from './pages/ImageDetailsPage';
 import VideoDetailsPage from './pages/VideoDetailsPage';
-
+import { CookiesProvider } from 'react-cookie';
 
 function Router() {
   return(
-    <BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
 
-      <Route path = '/' exact component = {Home}/>
-      <Route path = '/login' exact component = {SignInPage}/>
-      <Route path = '/videos' exact component = {AllVideosPage}/>
-      <Route path = '/images' exact component = {AllImagesPage}/>
-      <Route path='/images/:id' component={ImageDetailsPage} />
-      <Route path='/videos/:id' component={VideoDetailsPage} />
+        <Route path = '/' exact component = {Home}/>
+        <Route path = '/login' exact component = {SignInPage}/>
+        <Route path = '/videos' exact component = {AllVideosPage}/>
+        <Route path = '/images' exact component = {AllImagesPage}/>
+        <Route path='/images/:id' component={ImageDetailsPage} />
+        <Route path='/videos/:id' component={VideoDetailsPage} />
 
 
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </CookiesProvider>
   )
 }
 

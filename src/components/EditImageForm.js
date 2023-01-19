@@ -1,12 +1,15 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import APIService from '../APIService';
+import useCookies from 'react-cookie/cjs/useCookies';
 
 
 function EditImageForm(props) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [token] = useCookies(['mytoken'])
+
 
   useEffect(() => {
     setTitle(props.image.title)
@@ -14,7 +17,7 @@ function EditImageForm(props) {
   }, [props.image])
 
   const updateImage = () => {
-    APIService.UpdateImage(props.image.id, {title, description})
+    APIService.UpdateImage(props.image.id, {title, description}, token['mytoken'])
     .then(resp => props.updatedInformation(resp))
   }
 

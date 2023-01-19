@@ -1,13 +1,27 @@
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import APIService from "../APIService"
+import {useCookies} from 'react-cookie'
+import { useHistory } from "react-router-dom"
 
-export default function (props) {
-  let [authMode, setAuthMode] = useState("signin")
-  const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin")
+function SignIn(props) {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [token, setToken] = useCookies(['mytoken'])
+  let history = useHistory()
+
+  useEffect(() => {
+    if(token['mytoken']){
+      history.push('/')
+    }
+  }, [token])
+
+  const loginBtn = () => {
+    APIService.LoginUser({username, password})
+    .then(resp => setToken('mytoken',resp.token))
+    .catch(error => console.log(error))
   }
 
-  if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
         <form className="Auth-form">
@@ -15,16 +29,18 @@ export default function (props) {
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
               Not registered yet?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
+              <span className="link-primary" onClick={props.changeAuthMode}>
                 Sign Up
               </span>
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
-                type="email"
+                type="text"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Enter username"
+                value = {username}
+                onChange = {e => setUsername(e.target.value)}
               />
             </div>
             <div className="form-group mt-3">
@@ -33,10 +49,12 @@ export default function (props) {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
+                value = {password}
+                onChange = {e => setPassword(e.target.value)}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick = {loginBtn}>
                 Submit
               </button>
             </div>
@@ -47,53 +65,7 @@ export default function (props) {
         </form>
       </div>
     )
-  }
-
-  return (
-    <div className="Auth-form-container">
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="text-center">
-            Already registered?{" "}
-            <span className="link-primary" onClick={changeAuthMode}>
-              Sign In
-            </span>
-          </div>
-          <div className="form-group mt-3">
-            <label>Full Name</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Password"
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
-          </p>
-        </div>
-      </form>
-    </div>
-  )
 }
+
+export default SignIn
+
