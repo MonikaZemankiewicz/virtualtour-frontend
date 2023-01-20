@@ -6,7 +6,7 @@ function EditableVideoListItem(props) {
         return (
             <li className="cards_item">
                 <div className="card image_card">
-                    <a className="overlay" href={'/images/' + props.video.id}></a>
+                    <a className="overlay" href={'/videos/' + props.video.id}></a>
                     <div className="card_image">
                     <ProgressiveImage src={props.video.cover} placeholder="tiny-image.jpg">
                         {src => (

@@ -1,4 +1,6 @@
 import {useCookies} from 'react-cookie'
+import axios from 'axios';
+
 
 
 export default class APIService {

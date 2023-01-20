@@ -40,6 +40,21 @@ code {
   padding: 0 0 0 1rem;
 }
 
+/* Home */
+.see_more_button_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.see_more_button{
+  color: white !important;
+  width: 200px;
+  margin: 10px auto;
+  background: rgba(89, 219, 228, 0.525) !important;
+}
+
 /* Design */
 *,
 *::before,
@@ -336,4 +351,18 @@ label {
 .react-tabs__tab-panel--selected {
   display: block;
 }
+
+/* Profile Page */
+.profile_heading{
+  color: white;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.profile_heading_line{
+  color: white;
+  margin-bottom: 2rem;
+}
+
+
 

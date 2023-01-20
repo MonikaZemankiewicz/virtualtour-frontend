@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import APIService from "../APIService"
 import {useCookies} from 'react-cookie'
 import { useHistory } from "react-router-dom"
+import axios from 'axios';
 
 function SignIn(props) {
   const [username, setUsername] = useState('')
@@ -20,7 +21,6 @@ function SignIn(props) {
     APIService.LoginUser({username, password})
     .then((resp) => {
       setToken('mytoken', resp.token)
-      console.log(resp.token)
     })
     .catch(error => console.log(error))
 

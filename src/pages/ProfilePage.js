@@ -17,6 +17,7 @@ function ProfilePage() {
     const[editVideo, setEditVideo] = useState(null)
     const [token] = useCookies(['mytoken'])
   
+    //  Fetch Owner Images
     useEffect(() => {
       fetch('http://127.0.0.1:8000/api/images', {
         'method': 'GET',
@@ -41,6 +42,7 @@ function ProfilePage() {
       .catch(error => console.log(error))
     }, [])
 
+    //  Fetch Owner Videos
     useEffect(() => {
       fetch('http://127.0.0.1:8000/api/videos', {
         'method': 'GET',
@@ -135,23 +137,28 @@ function ProfilePage() {
     return (
       <Layout>
         <div className='page'>
-
+        <h1 className='profile_heading'>My content</h1>  
+        <hr className='profile_heading_line'></hr>
+        <Tabs>
+            <TabList>
+              <Tab>Images</Tab>
+              <Tab>Videos</Tab>
+            </TabList>
+            <TabPanel>
               {editImage ? 
                   <EditImageForm image = {editImage} updatedInformation = {updatedInformationImages} closeForm = {closeForm}></EditImageForm>
                   : null
               }
-
+              <EditableImageList images = {images} editBtn = {editImageBtn} deleteBtn={deleteImageBtn}></EditableImageList>
+            </TabPanel>
+            <TabPanel>
               {editVideo ? 
                   <EditVideoForm video = {editVideo} updatedInformation = {updatedInformationVideos} closeForm = {closeForm}></EditVideoForm>
                   : null
               }
-              <h1>My Images</h1>
-              <EditableImageList images = {images} editBtn = {editImageBtn} deleteBtn={deleteImageBtn}></EditableImageList>
-              <h1>My Videos</h1>
               <EditableVideoList videos = {videos} editBtn = {editVideoBtn} deleteBtn={deleteVideoBtn}></EditableVideoList>
-
-        
-          
+            </TabPanel>
+          </Tabs>           
         </div>
           
       </Layout>
