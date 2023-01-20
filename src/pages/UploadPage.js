@@ -11,18 +11,18 @@ function UploadImagePage() {
   return (
     <Layout>
       <div className='page'>
-      <Tabs>
-        <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-        </TabList>
-        <TabPanel>
-          <ImageUploadForm/>
-        </TabPanel>
-        <TabPanel>
-          <VideoUploadForm/>
-        </TabPanel>
-      </Tabs>
+          <Tabs>
+            <TabList>
+              <Tab>Image</Tab>
+              <Tab>Video</Tab>
+            </TabList>
+            <TabPanel>
+              <ImageUploadForm/>
+            </TabPanel>
+            <TabPanel>
+              <VideoUploadForm/>
+            </TabPanel>
+          </Tabs> 
       </div>
     </Layout>
   )

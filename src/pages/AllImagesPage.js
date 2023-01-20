@@ -27,47 +27,13 @@ function AllImages() {
     .then(resp => setImages(resp))
     .catch(error => console.log(error))
   }, [])
-
-  const editBtn = (image) => {
-    setEditImage(image)
-  }
-
-  const deleteBtn = (image) => {
-    const new_images = images.filter(myimage => {
-      if(myimage.id === image.id) {
-        return false
-      }
-      return true;
-    })
-
-    setImages(new_images)
-  }
-
-
-  const updatedInformation = (image) => {
-    const new_image = images.map(current_image => {
-      if(current_image.id === image.id) {
-        return image;
-      }
-      else {
-        return current_image;
-      }
-    })
-
-    setImages(new_image)
-  }
   
 
   return (
     <Layout>
       <div className='page'>
-        <ImageList images = {images} editBtn = {editBtn} deleteBtn={deleteBtn}></ImageList>
-        {editImage ? 
-              <EditImageForm image = {editImage} updatedInformation = {updatedInformation}></EditImageForm>
-              : null
-        }
-      </div>
-        
+        <ImageList images = {images}></ImageList>
+      </div>      
     </Layout>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import '../index.css';
 import ProgressiveImage from 'react-progressive-image';
-function ImageListItem(props) {
+
+function EditableImageListItem(props) {
         return (
             <li className="cards_item">
                 <div className="card image_card">
@@ -25,6 +26,14 @@ function ImageListItem(props) {
                         })}
                         </div>
                     </div>
+                    <div className = 'edit_buttons_div'>
+                            <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.image)}>
+                                Update
+                            </button>
+                            <button className = "btn btn-sm delete_button" onClick = {() => props.deleteBtn(props.image)}>
+                                Delete
+                            </button>
+                        </div>
 
                 </div>
 
@@ -34,4 +43,4 @@ function ImageListItem(props) {
     }
 
 
-export default ImageListItem
+export default EditableImageListItem
