@@ -15,7 +15,7 @@ function SignInPage() {
   if (authMode === "signin") {
     return (
       <Layout>
-        <SignIn changeAuthMode = {changeAuthMode}></SignIn>
+        <SignIn changeAuthMode = {changeAuthMode} ></SignIn>
       </Layout>
     )
   }

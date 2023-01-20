@@ -32,6 +32,13 @@ code {
 
 
 /* Navbar */
+.navbar-brand{
+  margin-right: 0 !important;
+}
+.profile_icon{
+  max-height: 2rem;
+  padding: 0 0 0 1rem;
+}
 
 /* Design */
 *,

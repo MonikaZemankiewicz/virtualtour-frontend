@@ -5,7 +5,7 @@ import ProgressiveImage from 'react-progressive-image';
 function VideoListItem(props) {
         return (
             <li className="cards_item">
-                <div className="card">
+                <div className="image_card card">
                     <a className="overlay" href={'/videos/' + props.video.id}></a>
                     <div className="card_image">
                         <ProgressiveImage src={props.video.cover} placeholder="tiny-image.jpg">

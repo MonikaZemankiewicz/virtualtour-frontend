@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 function SignIn(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken] = useCookies(['mytoken'])
+  const [token, setToken, removeToken] = useCookies(['mytoken'])
   let history = useHistory()
 
   useEffect(() => {
@@ -18,8 +18,12 @@ function SignIn(props) {
 
   const loginBtn = () => {
     APIService.LoginUser({username, password})
-    .then(resp => setToken('mytoken',resp.token))
+    .then((resp) => {
+      setToken('mytoken', resp.token)
+      console.log(resp.token)
+    })
     .catch(error => console.log(error))
+
   }
 
     return (
@@ -34,13 +38,14 @@ function SignIn(props) {
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Email address</label>
+              <label>Username</label>
               <input
                 type="text"
                 className="form-control mt-1"
                 placeholder="Enter username"
                 value = {username}
                 onChange = {e => setUsername(e.target.value)}
+                required
               />
             </div>
             <div className="form-group mt-3">
@@ -51,11 +56,12 @@ function SignIn(props) {
                 placeholder="Enter password"
                 value = {password}
                 onChange = {e => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary" onClick = {loginBtn}>
-                Submit
+                Log In
               </button>
             </div>
             <p className="text-center mt-2">

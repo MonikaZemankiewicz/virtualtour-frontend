@@ -16,10 +16,12 @@ function ImageUploadForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(token['mytoken'])
     let form_data = new FormData();
     form_data.append('image', image, image.name);
     form_data.append('title', title);
     form_data.append('description', description);
+    form_data.append('owner', token['mytoken']);
     let url = 'http://localhost:8000/api/images/';
     axios.post(url, form_data, {
       headers: {
@@ -36,7 +38,6 @@ function ImageUploadForm(props) {
 
     return (
       <div className="App">
-        <Layout>
           <div className='page'>
               <div className='image_form'>
                 <div className='mb-3'>
@@ -55,12 +56,10 @@ function ImageUploadForm(props) {
                       Image
                   </label>
                   <input type = "file" className='form-control' id="image" accept="image/png, image/jpeg"  onChange = {e => setImage(e.target.files[0])} required/>
-                  <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Update Image</button>
+                  <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Upload Image</button>
                 </div>
               </div>
-          </div>  
-        </Layout>
-        
+          </div>       
       </div>
     )
 }

@@ -18,7 +18,8 @@ function AllImages() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Token ${token['mytoken']}`
+        'Authorization': 'Token 8427f0bfaf16ebda450f89f5988449f6cb67e17f'
+        // 'Authorization': `Token ${token['mytoken']}`
       }
 
     })
