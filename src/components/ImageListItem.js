@@ -1,15 +1,20 @@
 import React from 'react'
 import '../index.css';
-import ProgressiveImage from 'react-progressive-image';
+import placeholder from '../images/placeholder.jpg'
+import ProgressiveImage from 'react-progressive-graceful-image';
 function ImageListItem(props) {
         return (
             <li className="cards_item">
                 <div className="card image_card">
                     <a className="overlay" href={'/images/' + props.image.id}></a>
                     <div className="card_image">
-                    <ProgressiveImage src={props.image.image} placeholder="tiny-image.jpg">
-                        {src => (
-                            <img src={src} alt="image" />
+                    <ProgressiveImage src={props.image.image} placeholder={props.image.image}>
+                        {(src, loading) => (
+                            <img
+                            className={`image${loading ? " loading" : " loaded"}`}
+                            src={src}
+                            alt={props.image.title}
+                            />
                         )}
                     </ProgressiveImage>
                         {/* <img src={props.image.image} loading="lazy"/> */}

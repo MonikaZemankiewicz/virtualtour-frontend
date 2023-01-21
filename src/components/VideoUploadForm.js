@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import Layout from './Layout';
-import AddImage from './AddImage';
 import React from 'react';
 import axios from 'axios';
 import { Col } from 'reactstrap';

@@ -5,15 +5,23 @@ import { Pannellum } from "pannellum-react";
 import axios from "axios";    
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
+import { saveAs } from 'file-saver'
 
 
 
 function ImageDetails(props){
+
+
+        const downloadImage = () => {
+            console.log(props.image.image)
+          saveAs(props.image.image, 'download.png') // Put your image url here.
+        }
+
         return (
             <Row className="ContentItem">
              <Col xs="3"/>
                <Col xs="12" sm="6">
-                    <Card>
+                    <Card className='image_card'>
                         <Pannellum
                             width="100%"
                             height="500px"
@@ -26,12 +34,20 @@ function ImageDetails(props){
                         >
                         </Pannellum>
                         <CardBody>
-                            <CardTitle>
+                            <CardTitle className='details_card_title'>
                                 {props.image.title}
                             </CardTitle>
-                            <CardText>
+                            <CardText className='details_card_description'>
                                 {props.image.description}
                             </CardText>
+                            <div className='download_button_div'>
+                                <button 
+                                    className='btn btn-success update_image_button download_button'
+                                    onClick = {downloadImage}
+                                    >
+                                    Download
+                                </button>
+                            </div>
                         </CardBody>
                     </Card>
                 </Col> 

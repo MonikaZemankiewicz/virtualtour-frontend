@@ -1,7 +1,6 @@
 import React from 'react'
 import '../index.css';
 import ImageListItem from './ImageListItem'
-import APIService from '../APIService';
 import useCookies from 'react-cookie/cjs/useCookies';
 
 

@@ -55,6 +55,10 @@ function Home() {
   return (
     <Layout>
       <div className='page'>
+        <div className="welcome_text_div">
+        <h1>Welcome to the 360 Media website, your one-stop destination for all your media needs! </h1>
+        <h2>Scroll through free 360 images, videos and virtual tours or log in to upload your own. </h2>
+        </div>
         <h1 className='profile_heading'>360 Images</h1>  
         <hr className='profile_heading_line'></hr>
         <ImageList images = {images}></ImageList>

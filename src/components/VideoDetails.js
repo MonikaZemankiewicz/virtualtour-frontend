@@ -6,7 +6,6 @@ import myVideo from "../images/mountains.mp4";
 import ThreeSixty from 'react-360-view'
 import VrPlayer from 'react-vr-player'
 import ReactPlayer from 'react-player/lazy'
-import Comments from './Comments';
 
 
 function VideoDetails(props) {
@@ -15,7 +14,6 @@ function VideoDetails(props) {
                 <div className='video_player'>
                     <ReactPlayer url={props.video.video} className='video' />
                 </div>
-                <Comments></Comments>
             </div>
                         
         )

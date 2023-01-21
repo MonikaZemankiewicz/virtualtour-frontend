@@ -44,7 +44,7 @@ function OffcanvasExample() {
                     </NavDropdown> }
                     <Nav.Link href="/login">Log out</Nav.Link>
                   </Nav>
-                  <Form className="d-flex">
+                  {/* <Form className="d-flex">
                     <Form.Control
                       type="search"
                       placeholder="Search"
@@ -52,7 +52,7 @@ function OffcanvasExample() {
                       aria-label="Search"
                     />
                     <Button variant="outline-success">Search</Button>                
-                  </Form>
+                  </Form> */}
                     <Navbar.Brand href="/profile" className='profile_icon_div'>
                       <img src={profileicon} className='profile_icon'/>
                     </Navbar.Brand>
@@ -94,7 +94,7 @@ function OffcanvasExample() {
                     </NavDropdown> }
                     <Nav.Link href="/login">Log in</Nav.Link>
                   </Nav>
-                  <Form className="d-flex">
+                  {/* <Form className="d-flex">
                     <Form.Control
                       type="search"
                       placeholder="Search"
@@ -102,7 +102,7 @@ function OffcanvasExample() {
                       aria-label="Search"
                     />
                     <Button variant="outline-success">Search</Button>                
-                  </Form>
+                  </Form> */}
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
             </Container>

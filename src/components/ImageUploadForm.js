@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-import Layout from './Layout';
-import AddImage from './AddImage';
+import { useState } from 'react';
 import React from 'react';
 import axios from 'axios';
-import { Col } from 'reactstrap';
 import useCookies from 'react-cookie/cjs/useCookies';
 
 function ImageUploadForm(props) {

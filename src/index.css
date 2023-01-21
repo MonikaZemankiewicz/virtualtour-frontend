@@ -37,7 +37,7 @@ code {
 }
 .profile_icon{
   max-height: 2rem;
-  padding: 0 0 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 /* Home */
@@ -53,6 +53,30 @@ code {
   width: 200px;
   margin: 10px auto;
   background: rgba(89, 219, 228, 0.525) !important;
+}
+
+
+
+.welcome_text_div{
+  text-align: center;
+  padding: 6rem 1rem;
+  height: 70vh;
+}
+
+@media (min-width: 56rem) {
+  .welcome_text_div{
+    padding: 20vh;
+  }
+}
+
+.welcome_text_div h1{
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.welcome_text_div h2{
+  color: white;
+  font-size: 1.5rem;
 }
 
 /* Design */
@@ -363,6 +387,26 @@ label {
   color: white;
   margin-bottom: 2rem;
 }
+
+
+/* Details page */
+.download_button_div {
+  display: flex;
+}
+
+.download_button {
+  margin: auto;
+}
+
+.details_card_title {
+  color: rgba(245, 245, 245, 0.841);
+  font-size: 1.5rem;
+}
+.details_card_description {
+  color: rgba(245, 245, 245, 0.841);
+  font-size: 1rem;
+}
+
 
 
 

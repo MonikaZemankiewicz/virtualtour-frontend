@@ -2,14 +2,13 @@ import React from 'react'
 import Layout from '../components/Layout';
 import ImageList from '../components/ImageList';
 import { useState, useEffect } from 'react';
-import EditImageForm from '../components/EditImageForm'
 import {useCookies} from 'react-cookie'
 
 
 function AllImages() {
   const[images, setImages] = useState([])
-  const[editImage, setEditImage] = useState(null)
   const [token] = useCookies(['mytoken'])
+  const [searchValue, setSearchValue] = useState('')
 
 
 
@@ -27,11 +26,39 @@ function AllImages() {
     .then(resp => setImages(resp))
     .catch(error => console.log(error))
   }, [])
+
+
+  const searchImages = () => {
+    let searchedImages = []
+    console.log(searchValue)
+    {images.map(image => {
+      if(image.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || image.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
+        searchedImages.push(image)
+      }
+      })}
+    setImages(searchedImages)
+  }
   
 
   return (
     <Layout>
       <div className='page'>
+        <input type = "text" 
+          className='form-control' 
+          id="search" 
+          placeholder='Search' 
+          value = {searchValue} 
+          onChange = {e => setSearchValue(e.target.value)} 
+          required>
+        </input>
+        <button onClick = {searchImages} 
+          className='btn btn-success update_image_button'>
+            Search
+        </button>
+        <button onClick = {searchImages} 
+          className='btn btn-danger update_image_button'>
+            Cancel
+        </button>
         <ImageList images = {images}></ImageList>
       </div>      
     </Layout>
