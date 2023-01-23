@@ -30,7 +30,7 @@ function AllImages() {
 
   const displayAllImages = () => {
     setSearchValue('')
-    fetch('http://127.0.0.1:8000/api/images', {
+    fetch('https://monikazemankiewicz.pythonanywhere.com/api/images', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',

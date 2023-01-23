@@ -29,7 +29,7 @@ function AllVideos() {
 
   const displayAllVideos = () => {
     setSearchValue('')
-    fetch('http://127.0.0.1:8000/api/videos', {
+    fetch('https://monikazemankiewicz.pythonanywhere.com/api/videos', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',

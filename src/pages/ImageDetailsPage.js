@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 function AllImages() {
   const { id } = useParams()
-  const url = 'http://127.0.0.1:8000/api/images/'
+  const url = 'https://monikazemankiewicz.pythonanywhere.com/api/images/'
 
   const[image, setImage] = useState([])
   const[editImage, setEditImage] = useState(null)
