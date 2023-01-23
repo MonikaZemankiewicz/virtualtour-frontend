@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import VideoDetails from '../components/VideoDetails';
 import { useParams } from "react-router-dom";
 
-function VideoDetailsPage() {
+function VirtualTourDetailsPage() {
   const { id } = useParams()
   const url = 'http://127.0.0.1:8000/api/videos/'
 
@@ -33,4 +33,4 @@ function VideoDetailsPage() {
   )
 }
 
-export default VideoDetailsPage
+export default VirtualTourDetailsPage

@@ -3,11 +3,11 @@ import React from 'react';
 import axios from 'axios';
 import useCookies from 'react-cookie/cjs/useCookies';
 
-function VideoUploadForm(props) {
+function VirtualTourUploadForm(props) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState(null)
-  const [videoLink, setVideoLink] = useState('')
+  const [virtualTourLink, setVirtualTourLink] = useState('')
   const [token] = useCookies(['mytoken'])
 
 
@@ -19,8 +19,8 @@ function VideoUploadForm(props) {
     form_data.append('title', title);
     form_data.append('description', description);
     form_data.append('owner', token['mytoken']);
-    form_data.append('video', videoLink);
-    let url = 'http://localhost:8000/api/videos/';
+    form_data.append('link', virtualTourLink);
+    let url = 'http://localhost:8000/api/virtualtours/';
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data',
@@ -74,18 +74,18 @@ function VideoUploadForm(props) {
                   </input> 
 
                   <label htmlFor = "title" className='form-label'>
-                      Video Link
+                      Virtual Tour Link
                   </label>
                   <input type = "url" 
                     className='form-control' 
                     id="title" 
                     placeholder='Please enter the title' 
-                    value={videoLink} 
-                    onChange = {e => setVideoLink(e.target.value)} 
+                    value={virtualTourLink} 
+                    onChange = {e => setVirtualTourLink(e.target.value)} 
                     required>
                   </input>  
                   
-                  <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Upload Video </button>
+                  <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Upload Virtual Tour</button>
                 </div>
               </div>
           </div>       
@@ -93,4 +93,4 @@ function VideoUploadForm(props) {
     )
 }
 
-export default VideoUploadForm;
+export default VirtualTourUploadForm;

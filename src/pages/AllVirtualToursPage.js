@@ -5,32 +5,32 @@ import {useCookies} from 'react-cookie'
 import MediaList from '../components/MediaList';
 
 
-function AllImages() {
-  const[images, setImages] = useState([])
+function AllVirtualToursPage() {
+  const[virtualtours, setVirtualTours] = useState([])
   const [token] = useCookies(['mytoken'])
   const [searchValue, setSearchValue] = useState('')
 
 
 
   useEffect(() => {
-    displayAllImages()
+    displayAllVirtualTours()
   }, [])
 
 
-  const searchImages = () => {
-    let searchedImages = []
+  const searchVirtualTours = () => {
+    let searchedVirtualTours = []
     console.log(searchValue)
-    {images.map(image => {
-      if(image.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || image.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
-        searchedImages.push(image)
+    {virtualtours.map(virtualtour => {
+      if(virtualtour.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || virtualtour.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
+        searchedVirtualTours.push(virtualtour)
       }
       })}
-    setImages(searchedImages)
+    setVirtualTours(searchedVirtualTours)
   }
 
-  const displayAllImages = () => {
+  const displayAllVirtualTours = () => {
     setSearchValue('')
-    fetch('http://127.0.0.1:8000/api/images', {
+    fetch('http://127.0.0.1:8000/api/virtualtours', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function AllImages() {
 
     })
     .then(resp => resp.json())
-    .then(resp => setImages(resp))
+    .then(resp => setVirtualTours(resp))
     .catch(error => console.log(error))
   }
   
@@ -57,21 +57,20 @@ function AllImages() {
             onChange = {e => setSearchValue(e.target.value)} 
             required>
           </input>
-          <button onClick = {searchImages}
+          <button onClick = {searchVirtualTours}
             type = 'submit'
             className='btn btn-success searchbox_button'>
               Search
           </button>
-          <button onClick = {displayAllImages} 
+          <button onClick = {displayAllVirtualTours} 
             className='btn btn-danger searchbox_button'>
               Cancel
           </button>
-        </div>
-        
-        <MediaList type = 'images' media = {images}></MediaList>
+        </div>      
+        <MediaList type = 'vitrualtours' media = {virtualtours}></MediaList>
       </div>      
     </Layout>
   )
 }
 
-export default AllImages
+export default AllVirtualToursPage

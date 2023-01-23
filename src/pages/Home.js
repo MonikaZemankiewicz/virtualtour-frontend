@@ -1,12 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import ImageUploadForm from '../components/ImageUploadForm'
-import ImageList from '../components/ImageList'
-import VideoList from '../components/VideoList'
 import { useState, useEffect } from 'react'
 import {useCookies} from 'react-cookie'
-import { Link } from 'react-router-dom';
-
+import MediaList from '../components/MediaList'
 
 function Home() {
   const[images, setImages] = useState([])
@@ -61,7 +57,7 @@ function Home() {
         </div>
         <h1 className='profile_heading'>360 Images</h1>  
         <hr className='profile_heading_line'></hr>
-        <ImageList images = {images}></ImageList>
+        <MediaList media = {images} type='images' ></MediaList>
         <div className='see_more_button_div'>
           <a href="/images">    
             <button type="button" className="btn btn-lg see_more_button">
@@ -71,7 +67,7 @@ function Home() {
         </div>
         <h1 className='profile_heading'>360 Videos</h1>  
         <hr className='profile_heading_line'></hr>
-        <VideoList videos = {videos}></VideoList>
+        <MediaList media = {videos} type = 'videos'></MediaList>
         <div className='see_more_button_div'>
           <a href="/videos">    
             <button type="button" className="btn btn-lg see_more_button">

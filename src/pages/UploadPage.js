@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import ImageUploadForm from '../components/ImageUploadForm'
 import VideoUploadForm from '../components/VideoUploadForm';
+import VirtualTourUploadForm from '../components/VirtualTourUploadForm';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -15,12 +16,16 @@ function UploadImagePage() {
             <TabList>
               <Tab>Image</Tab>
               <Tab>Video</Tab>
+              <Tab>Virtual Tour</Tab>
             </TabList>
             <TabPanel>
               <ImageUploadForm/>
             </TabPanel>
             <TabPanel>
               <VideoUploadForm/>
+            </TabPanel>
+            <TabPanel>
+              <VirtualTourUploadForm/>
             </TabPanel>
           </Tabs> 
       </div>

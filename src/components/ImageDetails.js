@@ -2,9 +2,6 @@ import React from 'react'
 import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } from 'reactstrap';
 import '../index.css';
 import { Pannellum } from "pannellum-react";
-import axios from "axios";    
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom";
 import { saveAs } from 'file-saver'
 
 

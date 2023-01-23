@@ -63,6 +63,7 @@ export default class APIService {
         'method' : 'POST',
         headers: {
             'Content-Type': 'application/json',
+            //'Referer': 'http://localhost:3000/'
         }, 
         body: JSON.stringify(body)
         }).then(resp => resp.json())

@@ -41,6 +41,39 @@ code {
 }
 
 /* Home */
+
+.welcome_text_div{
+  text-align: center;
+  padding: 4rem 1rem;
+  height: 50vh;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (min-width: 420px) {
+  .welcome_text_div{
+    padding: 2rem;
+    height: 40vh;
+  }
+}
+
+@media (min-width: 830px) {
+  .welcome_text_div{
+    padding: 3rem;
+    height: 30vh;
+  }
+}
+
+.welcome_text_div h1{
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.welcome_text_div h2{
+  color: white;
+  font-size: 1.5rem;
+}
+
 .see_more_button_div{
   display: flex;
   align-items: center;
@@ -57,28 +90,6 @@ code {
 
 
 
-.welcome_text_div{
-  text-align: center;
-  padding: 6rem 1rem;
-  height: 70vh;
-}
-
-@media (min-width: 56rem) {
-  .welcome_text_div{
-    padding: 20vh;
-  }
-}
-
-.welcome_text_div h1{
-  color: white;
-  margin-bottom: 3rem;
-}
-
-.welcome_text_div h2{
-  color: white;
-  font-size: 1.5rem;
-}
-
 /* Design */
 *,
 *::before,
@@ -87,7 +98,7 @@ code {
 }
 
 .main{
-  max-width: 1200px;
+  max-width: 1150px;
   margin: 0 auto;
 }
 
@@ -145,6 +156,15 @@ h1 {
 @media (min-width: 56rem) {
   .cards_item {
     width: 33.3333%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main {
+    max-width: 1500px;
+  }
+  .cards_item {
+    width: 25%;
   }
 }
 
@@ -254,10 +274,15 @@ h1 {
 }
 
 .video {
-  margin: auto;
-  padding: 10px;
-  max-width: 640px !important;
+  margin: 0;
+  padding: 0;
+  max-width: 750px !important;
   width: auto !important;
+}
+
+.video_card{
+  border-radius: 0 !important;
+  /*min-height: 200px !important;*/
 }
 
 .update_button{
@@ -407,6 +432,16 @@ label {
   font-size: 1rem;
 }
 
+
+/* All media page */
+
+.searchbox_div {
+  padding: 0 2rem;
+  display: flex;
+}
+.searchbox_button {
+  margin: 0 0 0 1rem;
+}
 
 
 

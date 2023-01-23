@@ -8,7 +8,7 @@ function EditableVideoListItem(props) {
                 <div className="card image_card">
                     <a className="overlay" href={'/videos/' + props.video.id}></a>
                     <div className="card_image">
-                    <ProgressiveImage src={props.video.cover} placeholder="tiny-image.jpg">
+                    <ProgressiveImage src={props.video.image} placeholder="tiny-image.jpg">
                         {src => (
                             <img src={src} alt="image" />
                         )}

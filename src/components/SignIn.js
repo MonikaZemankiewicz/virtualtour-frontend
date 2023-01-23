@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react"
 import APIService from "../APIService"
 import {useCookies} from 'react-cookie'
 import { useHistory } from "react-router-dom"
-import axios from 'axios';
 
 function SignIn(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken, removeToken] = useCookies(['mytoken'])
+  const [token, setToken] = useCookies(['mytoken'])
   let history = useHistory()
 
   useEffect(() => {
@@ -23,12 +22,11 @@ function SignIn(props) {
       setToken('mytoken', resp.token)
     })
     .catch(error => console.log(error))
-
   }
 
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" action="" onSubmit={loginBtn}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -60,7 +58,7 @@ function SignIn(props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" onClick = {loginBtn}>
+              <button type="submit" className="btn btn-primary">
                 Log In
               </button>
             </div>
@@ -72,6 +70,7 @@ function SignIn(props) {
       </div>
     )
 }
+
 
 export default SignIn
 

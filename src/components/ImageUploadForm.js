@@ -41,18 +41,35 @@ function ImageUploadForm(props) {
                   <label htmlFor = "title" className='form-label'>
                       Title
                   </label>
-                  <input type = "text" className='form-control' id="title" placeholder='Please enter the title' value={title} onChange = {e => setTitle(e.target.value)} required></input>
-                  
-                  
+                  <input type = "text" 
+                    className='form-control' 
+                    id="title" 
+                    placeholder='Please enter the title' 
+                    value={title} 
+                    onChange = {e => setTitle(e.target.value)} 
+                    required>
+                  </input>
                   <label htmlFor = "title" className='form-label'>
                       Description
                   </label>
-                  <textarea className='form-control' id="description" placeholder='Please enter the description' rows = "5" value={description} onChange = {e => setDescription(e.target.value)} required></textarea>
-
+                  <textarea className='form-control' 
+                    id="description" 
+                    placeholder='Please enter the description' 
+                    rows = "5" 
+                    value={description} 
+                    onChange = {e => setDescription(e.target.value)} 
+                    required>
+                  </textarea>
                   <label htmlFor = "title" className='form-label'>
                       Image
                   </label>
-                  <input type = "file" className='form-control' id="image" accept="image/png, image/jpeg"  onChange = {e => setImage(e.target.files[0])} required/>
+                  <input type = "file" 
+                    className='form-control' 
+                    id="image" 
+                    accept="image/png, image/jpeg" 
+                    onChange = {e => setImage(e.target.files[0])} 
+                    required>
+                   </input>
                   <button onClick = {handleSubmit} className='btn btn-success update_image_button'>Upload Image</button>
                 </div>
               </div>

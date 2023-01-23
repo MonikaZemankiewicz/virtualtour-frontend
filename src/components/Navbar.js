@@ -40,9 +40,9 @@ function OffcanvasExample() {
                       <NavDropdown.Item href="/images">Images</NavDropdown.Item>
                       <NavDropdown.Item href="/videos">Videos</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">Virtual Tours</NavDropdown.Item>
+                      <NavDropdown.Item href="/virtualtours">Virtual Tours</NavDropdown.Item>
                     </NavDropdown> }
-                    <Nav.Link href="/login">Log out</Nav.Link>
+                    <Nav.Link href="/logout">Log out</Nav.Link>
                   </Nav>
                   {/* <Form className="d-flex">
                     <Form.Control
@@ -90,7 +90,7 @@ function OffcanvasExample() {
                       <NavDropdown.Item href="/images">Images</NavDropdown.Item>
                       <NavDropdown.Item href="/videos">Videos</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">Virtual Tours</NavDropdown.Item>
+                      <NavDropdown.Item href="/virtualtours">Virtual Tours</NavDropdown.Item>
                     </NavDropdown> }
                     <Nav.Link href="/login">Log in</Nav.Link>
                   </Nav>

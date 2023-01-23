@@ -11,9 +11,23 @@ import ReactPlayer from 'react-player/lazy'
 function VideoDetails(props) {
         return (
             <div>
-                <div className='video_player'>
+            <Row className="ContentItem">
+             <Col xs="3"/>
+               <Col xs="12" sm="6">
+                    <Card  className='image_card video_card'>
                     <ReactPlayer url={props.video.video} className='video' />
-                </div>
+
+                        <CardBody className='video_card_body'>
+                            <CardTitle className='details_card_title'>
+                                {props.video.title}
+                            </CardTitle>
+                            <CardText className='details_card_description'>
+                                {props.video.description}
+                            </CardText>
+                        </CardBody>
+                    </Card>
+                </Col> 
+            </Row>  
             </div>
                         
         )
