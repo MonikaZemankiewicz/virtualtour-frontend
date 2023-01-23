@@ -20,7 +20,7 @@ function MediaList(props) {
           }   
           else if (props.type == 'videos'){
             return(
-              <MediaListItem video={item} key={item.id} type = {props.type}/>
+              <MediaListItem item={item} key={item.id} type = {props.type}/>
             )
           } 
           else {

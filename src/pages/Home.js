@@ -7,6 +7,7 @@ import MediaList from '../components/MediaList'
 function Home() {
   const[images, setImages] = useState([])
   const[videos, setVideos] = useState([])
+  const[virtualTours, setVirtualTours] = useState([])
   const [token] = useCookies(['mytoken'])
 
   useEffect(() => {
@@ -26,10 +27,7 @@ function Home() {
       setImages(displayImages)
       })
     .catch(error => console.log(error))
-  }, [])
-  
 
-  useEffect(() => {
     fetch('http://127.0.0.1:8000/api/videos', {
       'method': 'GET',
       headers: {
@@ -39,14 +37,32 @@ function Home() {
     })
     .then(resp => resp.json())
     .then((resp) => {
-      let ownerVideos = []
+      let displayVideos = []
       {resp.slice(0,3).map(video => {
-          ownerVideos.push(video)
+          displayVideos.push(video)
         })}
-      setVideos(ownerVideos)
+      setVideos(displayVideos)
+      })
+    .catch(error => console.log(error))
+
+     fetch('http://127.0.0.1:8000/api/virtualtours', {
+      'method': 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token 8427f0bfaf16ebda450f89f5988449f6cb67e17f'
+      }
+    })
+    .then(resp => resp.json())
+    .then((resp) => {
+      let displayVirtualTours = []
+      {resp.slice(0,3).map(virtualtours => {
+        displayVirtualTours.push(virtualtours)
+        })}
+        setVirtualTours(displayVirtualTours)
       })
     .catch(error => console.log(error))
   }, [])
+  
 
   return (
     <Layout>
@@ -57,7 +73,7 @@ function Home() {
         </div>
         <h1 className='profile_heading'>360 Images</h1>  
         <hr className='profile_heading_line'></hr>
-        <MediaList media = {images} type='images' ></MediaList>
+        <MediaList type = 'images' media = {images}></MediaList>
         <div className='see_more_button_div'>
           <a href="/images">    
             <button type="button" className="btn btn-lg see_more_button">
@@ -67,9 +83,19 @@ function Home() {
         </div>
         <h1 className='profile_heading'>360 Videos</h1>  
         <hr className='profile_heading_line'></hr>
-        <MediaList media = {videos} type = 'videos'></MediaList>
+        <MediaList type = 'videos' media = {videos}></MediaList>
         <div className='see_more_button_div'>
           <a href="/videos">    
+            <button type="button" className="btn btn-lg see_more_button">
+              See more
+            </button>
+          </a>  
+        </div>
+        <h1 className='profile_heading'>360 Virtual Tours</h1>  
+        <hr className='profile_heading_line'></hr>
+        <MediaList type = 'virtualtours' media = {virtualTours}></MediaList>
+        <div className='see_more_button_div'>
+          <a href="/virtualtours">    
             <button type="button" className="btn btn-lg see_more_button">
               See more
             </button>

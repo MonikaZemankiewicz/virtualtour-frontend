@@ -5,9 +5,6 @@ import { useState, useEffect } from 'react';
 import {useCookies} from 'react-cookie'
 
 
-
-
-
 function AllVideos() {
   const[videos, setVideos] = useState([])
   const [token] = useCookies(['mytoken'])
@@ -69,7 +66,7 @@ function AllVideos() {
                 Cancel
             </button>
         </div>
-        <MediaList media = {videos} type = 'videos'></MediaList>
+        <MediaList type = 'videos' media = {videos} ></MediaList>
       </div>
     </Layout>
   )

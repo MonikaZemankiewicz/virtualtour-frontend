@@ -15,17 +15,6 @@ export default class APIService {
         }).then(resp => resp.json())
     }
 
-    static AddImage(body, token) {
-        return fetch('http://127.0.0.1:8000/api/images/', {
-            'method' : 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Token ${token}` 
-            }, 
-            body: JSON.stringify(body)
-            }).then(resp => resp.json())
-    }
-
     static DeleteImage(image_id, token) {
         return fetch(`http://127.0.0.1:8000/api/images/${image_id}/`, {
         'method' : 'DELETE',
@@ -50,6 +39,36 @@ export default class APIService {
     static DeleteVideo(video_id, token) {
         return fetch(`http://127.0.0.1:8000/api/videos/${video_id}/`, {
         'method' : 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+        }
+        })
+    }
+
+    static GetAllImages(token) {
+        return fetch('http://127.0.0.1:8000/api/images', {
+        'method' : 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+        }
+        })
+    }
+
+    static GetAllVideos(token) {
+        return fetch('http://127.0.0.1:8000/api/videos', {
+        'method' : 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+        }
+        })
+    }
+
+    static GetAllVirtualTours(token) {
+        return fetch('http://127.0.0.1:8000/api/virtualtours', {
+        'method' : 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${token}` 
