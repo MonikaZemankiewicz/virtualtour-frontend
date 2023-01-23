@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 function VirtualTourDetailsPage() {
   const { id } = useParams()
-  const url = 'http://127.0.0.1:8000/api/videos/'
+  const url = 'https://monikazemankiewicz.pythonanywhere.com/api/videos/'
 
   const[video, setVideo] = useState([])
 

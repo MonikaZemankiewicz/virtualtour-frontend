@@ -30,7 +30,7 @@ function AllVirtualToursPage() {
 
   const displayAllVirtualTours = () => {
     setSearchValue('')
-    fetch('http://127.0.0.1:8000/api/virtualtours', {
+    fetch('https://monikazemankiewicz.pythonanywhere.com/api/virtualtours', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',

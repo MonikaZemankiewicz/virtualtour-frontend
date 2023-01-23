@@ -4,7 +4,7 @@ import './index.css';
 import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import AllVideosPage from './pages/AllVideosPage';
 import AllImagesPage from './pages/AllImagesPage';
 import SignInPage from './pages/SignInPage';
@@ -20,17 +20,18 @@ function Router() {
   return(
     <CookiesProvider>
       <BrowserRouter>
-        <Route path = '/' exact component = {Home}/>
-        <Route path = '/login' exact component = {SignInPage}/>
-        <Route path = '/logout' exact component = {SignOutPage}/>
-        <Route path = '/videos' exact component = {AllVideosPage}/>
-        <Route path = '/images' exact component = {AllImagesPage}/>
-        <Route path = '/virtualtours' exact component = {AllVirtualToursPage}/>
-        <Route path='/images/:id' component={ImageDetailsPage} />
-        <Route path='/videos/:id' component={VideoDetailsPage} />
-        <Route path='/profile' component={ProfilePage} />
-        <Route path='/upload' component={UploadPage} />
-
+        <Switch>
+          <Route path = '/' exact component = {Home}/>
+          <Route path = '/login' exact component = {SignInPage}/>
+          <Route path = '/logout' exact component = {SignOutPage}/>
+          <Route path = '/videos' exact component = {AllVideosPage}/>
+          <Route path = '/images' exact component = {AllImagesPage}/>
+          <Route path = '/virtualtours' exact component = {AllVirtualToursPage}/>
+          <Route path='/images/:id' component={ImageDetailsPage} />
+          <Route path='/videos/:id' component={VideoDetailsPage} />
+          <Route path='/profile' component={ProfilePage} />
+          <Route path='/upload' component={UploadPage} />
+        </Switch>
       </BrowserRouter>
     </CookiesProvider>
   )

@@ -19,7 +19,7 @@ function ProfilePage() {
   
     //  Fetch Owner Images
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/images', {
+      fetch('https://monikazemankiewicz.pythonanywhere.com/api/images', {
         'method': 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ function ProfilePage() {
 
     //  Fetch Owner Videos
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/videos', {
+      fetch('https://monikazemankiewicz.pythonanywhere.com/api/videos', {
         'method': 'GET',
         headers: {
           'Content-Type': 'application/json',
