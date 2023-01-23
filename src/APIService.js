@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default class APIService {
     static UpdateImage(image_id, body, token) {
-        return fetch(`https://monikazemankiewicz.pythonanywhere.com/api/images/${image_id}/`, {
+        return fetch(`http://127.0.0.1:8000/api/images/${image_id}/`, {
         'method' : 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export default class APIService {
     }
 
     static DeleteImage(image_id, token) {
-        return fetch(`https://monikazemankiewicz.pythonanywhere.com/api/images/${image_id}/`, {
+        return fetch(`http://127.0.0.1:8000/api/images/${image_id}/`, {
         'method' : 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export default class APIService {
     }
 
     static UpdateVideo(video_id, body, token) {
-        return fetch(`https://monikazemankiewicz.pythonanywhere.com/api/videos/${video_id}/`, {
+        return fetch(`http://127.0.0.1:8000/api/videos/${video_id}/`, {
         'method' : 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,28 @@ export default class APIService {
     }
 
     static DeleteVideo(video_id, token) {
-        return fetch(`https://monikazemankiewicz.pythonanywhere.com/api/videos/${video_id}/`, {
+        return fetch(`http://127.0.0.1:8000/api/videos/${video_id}/`, {
+        'method' : 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+        }
+        })
+    }
+
+    static UpdateVirtualTour(virtualtour_id, body, token) {
+        return fetch(`http://127.0.0.1:8000/api/virtualtours/${virtualtour_id}/`, {
+        'method' : 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+        }, 
+        body: JSON.stringify(body)
+        }).then(resp => resp.json())
+    }
+
+    static DeleteVirtualTour(virtualtour_id, token) {
+        return fetch(`http://127.0.0.1:8000/api/virtualtours/${virtualtour_id}/`, {
         'method' : 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -47,7 +68,7 @@ export default class APIService {
     }
 
     static GetAllImages(token) {
-        return fetch('https://monikazemankiewicz.pythonanywhere.com/api/images', {
+        return fetch('http://127.0.0.1:8000/api/images', {
         'method' : 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -57,7 +78,7 @@ export default class APIService {
     }
 
     static GetAllVideos(token) {
-        return fetch('https://monikazemankiewicz.pythonanywhere.com/api/videos', {
+        return fetch('http://127.0.0.1:8000/api/videos', {
         'method' : 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -67,7 +88,7 @@ export default class APIService {
     }
 
     static GetAllVirtualTours(token) {
-        return fetch('https://monikazemankiewicz.pythonanywhere.com/api/virtualtours', {
+        return fetch('http://127.0.0.1:8000/api/virtualtours', {
         'method' : 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -78,7 +99,7 @@ export default class APIService {
 
 
     static LoginUser(body) {
-        return fetch('https://monikazemankiewicz.pythonanywhere.com/auth/', {
+        return fetch('http://127.0.0.1:8000/auth/', {
         'method' : 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -90,7 +111,7 @@ export default class APIService {
 
     
     static RegisterUser(body) {
-        return fetch('https://monikazemankiewicz.pythonanywhere.com/api/users/', {
+        return fetch('http://127.0.0.1:8000/api/users/', {
         'method' : 'POST',
         headers: {
             'Content-Type': 'application/json',

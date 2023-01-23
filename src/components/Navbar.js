@@ -17,7 +17,7 @@ function OffcanvasExample() {
       <>
           <Navbar key='sm' variant="dark" expand='sm'>
             <Container fluid>
-              <Navbar.Brand href="/">360 Media</Navbar.Brand>
+              <Navbar.Brand href="/">SIIS 360 Media</Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-sm`}
@@ -26,7 +26,7 @@ function OffcanvasExample() {
               >
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm`}>
-                    Offcanvas
+                    SIIS 360 Media
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>

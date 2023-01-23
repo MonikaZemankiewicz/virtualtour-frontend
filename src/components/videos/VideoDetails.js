@@ -1,14 +1,14 @@
 import React from 'react'
 import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
-import '../index.css';
-import {PannellumVideo } from "pannellum-react";
-import myVideo from "../images/mountains.mp4";
-import ThreeSixty from 'react-360-view'
-import VrPlayer from 'react-vr-player'
+import '../../index.css';
 import ReactPlayer from 'react-player/lazy'
 
 
 function VideoDetails(props) {
+    
+    const openVideo = () => {
+        window.open(props.video.video, "_blank");
+    }
         return (
             <div>
             <Row className="ContentItem">
@@ -24,6 +24,14 @@ function VideoDetails(props) {
                             <CardText className='details_card_description'>
                                 {props.video.description}
                             </CardText>
+                            <div className='download_button_div'>
+                                <button 
+                                    className='btn btn-success update_image_button download_button'
+                                    onClick = {openVideo}
+                                    >
+                                    Open Original Video
+                                </button>
+                            </div>
                         </CardBody>
                     </Card>
                 </Col> 

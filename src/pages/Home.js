@@ -11,7 +11,7 @@ function Home() {
   const [token] = useCookies(['mytoken'])
 
   useEffect(() => {
-    fetch('https://monikazemankiewicz.pythonanywhere.com/api/images', {
+    fetch('http://127.0.0.1:8000/api/images', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function Home() {
       })
     .catch(error => console.log(error))
 
-    fetch('https://monikazemankiewicz.pythonanywhere.com/api/videos', {
+    fetch('http://127.0.0.1:8000/api/videos', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function Home() {
       })
     .catch(error => console.log(error))
 
-     fetch('https://monikazemankiewicz.pythonanywhere.com/api/virtualtours', {
+     fetch('http://127.0.0.1:8000/api/virtualtours', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',

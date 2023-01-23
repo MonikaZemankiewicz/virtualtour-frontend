@@ -1,10 +1,10 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import APIService from '../APIService';
+import APIService from '../../APIService';
 import useCookies from 'react-cookie/cjs/useCookies';
 
 
-function EditVideoForm(props) {
+function EditVirtualTourForm(props) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -12,12 +12,12 @@ function EditVideoForm(props) {
 
 
   useEffect(() => {
-    setTitle(props.video.title)
-    setDescription(props.video.description)
-  }, [props.video])
+    setTitle(props.virtualtour.title)
+    setDescription(props.virtualtour.description)
+  }, [props.virtualtour])
 
   const updateVideo = () => {
-    APIService.UpdateVideo(props.video.id, {title, description}, token['mytoken'])
+    APIService.UpdateVirtualTour(props.virtualtour.id, {title, description}, token['mytoken'])
     .then((resp) => {
       props.updatedInformation(resp)
       props.closeForm()
@@ -27,7 +27,7 @@ function EditVideoForm(props) {
   return (
     <div className='gallery_padding'>
       <div className='image_form'>
-        {props.video ? (
+        {props.virtualtour ? (
           
           <div className='mb-3'>
               <label htmlFor = "title" className='form-label'>
@@ -52,4 +52,4 @@ function EditVideoForm(props) {
   )
 }
 
-export default EditVideoForm
+export default EditVirtualTourForm

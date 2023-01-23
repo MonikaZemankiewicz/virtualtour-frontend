@@ -35,19 +35,9 @@ export default function (props) {
             <input
               type="text"
               className="form-control mt-1"
-              placeholder="e.g Jane Doe"
+              placeholder="e.g JaneDoe"
               value = {username}
               onChange = {e => setUsername(e.target.value)}
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-              value = {email}
-              onChange = {e => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group mt-3">

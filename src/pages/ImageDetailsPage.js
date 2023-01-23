@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
-import ImageDetails from '../components/ImageDetails';
+import ImageDetails from '../components/images/ImageDetails';
 import { useParams } from "react-router-dom";
 
 function AllImages() {
   const { id } = useParams()
-  const url = 'https://monikazemankiewicz.pythonanywhere.com/api/images/'
+  const url = 'http://127.0.0.1:8000/api/images/'
 
   const[image, setImage] = useState([])
   const[editImage, setEditImage] = useState(null)

@@ -3,23 +3,27 @@ import Layout from '../components/Layout'
 import {useCookies} from 'react-cookie'
 import { useHistory } from "react-router-dom"
 import { useState, useEffect } from 'react'
-import EditableImageList from '../components/EditableImageList'
-import EditImageForm from '../components/EditImageForm'
-import EditableVideoList from '../components/EditableVideoList'
-import EditVideoForm from '../components/EditVideoForm'
+import EditableImageList from '../components/images/EditableImageList'
+import EditImageForm from '../components/images/EditImageForm'
+import EditableVideoList from '../components/videos/EditableVideoList'
+import EditableVirtualTourList from '../components/virtualtours/EditableVirtualTourList'
+import EditVideoForm from '../components/videos/EditVideoForm'
+import EditVirtualTourForm from '../components/virtualtours/EditVirtualTourForm'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 function ProfilePage() {
     const[images, setImages] = useState([])
     const[videos, setVideos] = useState([])
+    const[virtualtours, setVirtualTours] = useState([])
     const[editImage, setEditImage] = useState(null)
     const[editVideo, setEditVideo] = useState(null)
+    const[editVirtualTour, setEditVirtualTour] = useState(null)
     const [token] = useCookies(['mytoken'])
   
     //  Fetch Owner Images
     useEffect(() => {
-      fetch('https://monikazemankiewicz.pythonanywhere.com/api/images', {
+      fetch('http://127.0.0.1:8000/api/images', {
         'method': 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +48,7 @@ function ProfilePage() {
 
     //  Fetch Owner Videos
     useEffect(() => {
-      fetch('https://monikazemankiewicz.pythonanywhere.com/api/videos', {
+      fetch('http://127.0.0.1:8000/api/videos', {
         'method': 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -66,10 +70,36 @@ function ProfilePage() {
         })
       .catch(error => console.log(error))
     }, [])
+
+    //  Fetch Owner Virtual Tours
+    useEffect(() => {
+      fetch('http://127.0.0.1:8000/api/virtualtours', {
+        'method': 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${token['mytoken']}`
+        }
+  
+      })
+      .then(resp => resp.json())
+      .then((resp) => {
+        let ownerVirtualTours = []
+        {resp.map(virtualtour => {
+            if(virtualtour.owner == token['mytoken']){
+                console.log('Virtual tour owner: ' + virtualtour.owner)
+                console.log(token['mytoken'])
+                ownerVirtualTours.push(virtualtour)
+            }
+          })}
+        setVirtualTours(ownerVirtualTours)
+        })
+      .catch(error => console.log(error))
+    }, [])
   
     const editImageBtn = (image) => {
       setEditImage(image)
       setEditVideo(null)
+      setEditVirtualTour(null)
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
   
@@ -87,6 +117,7 @@ function ProfilePage() {
     const editVideoBtn = (video) => {
       setEditVideo(video)
       setEditImage(null)
+      setEditVirtualTour(null)
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
   
@@ -98,12 +129,31 @@ function ProfilePage() {
         return true;
       })
   
-      setImages(new_videos)
+      setVideos(new_videos)
+    }
+
+    const editVirtualTourBtn = (virtualtour) => {
+      setEditVirtualTour(virtualtour)
+      setEditImage(null)
+      setEditVideo(null)
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }
+  
+    const deleteVirtualTourBtn = (virtualtour) => {
+      const new_virtualtours = virtualtours.filter(myvirtualtour => {
+        if(myvirtualtour.id === virtualtour.id) {
+          return false
+        }
+        return true;
+      })
+  
+      setVirtualTours(new_virtualtours)
     }
 
     const closeForm = () => {
       setEditImage(null)
       setEditVideo(null)
+      setEditVirtualTour(null)
     }
   
   
@@ -132,6 +182,20 @@ function ProfilePage() {
   
       setVideos(new_video)
     }
+
+    const updatedInformationVirtualTours = (virtualtour) => {
+      const new_virtualtour = virtualtours.map(current_virtualtour => {
+        if(current_virtualtour.id === virtualtour.id) {
+          return virtualtour;
+        }
+        else {
+          return current_virtualtour;
+        }
+      })
+  
+      setVirtualTours(new_virtualtour)
+    }
+    
     
   
     return (
@@ -143,6 +207,7 @@ function ProfilePage() {
             <TabList>
               <Tab>Images</Tab>
               <Tab>Videos</Tab>
+              <Tab>Virtual Tours</Tab>
             </TabList>
             <TabPanel>
               {editImage ? 
@@ -157,6 +222,13 @@ function ProfilePage() {
                   : null
               }
               <EditableVideoList videos = {videos} editBtn = {editVideoBtn} deleteBtn={deleteVideoBtn}></EditableVideoList>
+            </TabPanel>
+            <TabPanel>
+              {editVirtualTour ? 
+                  <EditVirtualTourForm virtualtour = {editVirtualTour} updatedInformation = {updatedInformationVirtualTours} closeForm = {closeForm}></EditVirtualTourForm>
+                  : null
+              }
+              <EditableVirtualTourList virtualtours = {virtualtours} editBtn = {editVirtualTourBtn} deleteBtn={deleteVirtualTourBtn}></EditableVirtualTourList>
             </TabPanel>
           </Tabs>           
         </div>

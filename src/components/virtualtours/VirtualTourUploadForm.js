@@ -20,7 +20,7 @@ function VirtualTourUploadForm(props) {
     form_data.append('description', description);
     form_data.append('owner', token['mytoken']);
     form_data.append('link', virtualTourLink);
-    let url = 'http://https://monikazemankiewicz.pythonanywhere.com//api/virtualtours/';
+    let url = 'http://127.0.0.1:8000/api/virtualtours/';
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data',

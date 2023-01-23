@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } from 'reactstrap';
-import '../index.css';
+import '../../index.css';
 import { Pannellum } from "pannellum-react";
 import { saveAs } from 'file-saver'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css';
+import '../../index.css';
 import ProgressiveImage from 'react-progressive-image';
 
 function EditableImageListItem(props) {

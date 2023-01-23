@@ -1,14 +1,14 @@
 import React from 'react'
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
-import VideoDetails from '../components/VideoDetails';
+import VirtualTourDetails from '../components/virtualtours/VirtualTourDetails';
 import { useParams } from "react-router-dom";
 
 function VirtualTourDetailsPage() {
   const { id } = useParams()
-  const url = 'https://monikazemankiewicz.pythonanywhere.com/api/videos/'
+  const url = 'http://127.0.0.1:8000/api/virtualtours/'
 
-  const[video, setVideo] = useState([])
+  const[virtualtour, setVirtualTour] = useState([])
 
   useEffect(() => {
     fetch(url.concat(id), {
@@ -20,14 +20,16 @@ function VirtualTourDetailsPage() {
 
     })
     .then(resp => resp.json())
-    .then(resp => setVideo(resp))
+    .then(resp => {
+      setVirtualTour(resp)
+    })
     .catch(error => console.log(error))
   }, [])
     
   return (
     <Layout>
         <div className='page'>
-        <VideoDetails video = {video}></VideoDetails>
+          <VirtualTourDetails virtualtour = {virtualtour}></VirtualTourDetails>
         </div>
     </Layout>
   )

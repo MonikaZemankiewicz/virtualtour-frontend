@@ -1,7 +1,7 @@
 import React from 'react'
-import '../index.css';
+import '../../index.css';
 import EditableVideoListItem from './EditableVideoListItem'
-import APIService from '../APIService';
+import APIService from '../../APIService';
 import useCookies from 'react-cookie/cjs/useCookies';
 
 
@@ -14,7 +14,7 @@ function EditableVideoList(props) {
   }
 
   const deleteBtn = (video) => {
-    APIService.DeleteImage(video.id, token['mytoken'])
+    APIService.DeleteVideo(video.id, token['mytoken'])
      .then(() => props.deleteBtn(video))
      .catch(error => console.log(error))
 

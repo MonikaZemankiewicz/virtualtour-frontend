@@ -19,7 +19,7 @@ function ImageUploadForm(props) {
     form_data.append('title', title);
     form_data.append('description', description);
     form_data.append('owner', token['mytoken']);
-    let url = 'http://https://monikazemankiewicz.pythonanywhere.com//api/images/';
+    let url = 'http://127.0.0.1:8000/api/images/';
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data',

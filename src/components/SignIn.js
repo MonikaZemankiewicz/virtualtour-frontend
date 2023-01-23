@@ -10,13 +10,14 @@ function SignIn(props) {
   const [token, setToken] = useCookies(['mytoken'])
   let history = useHistory()
 
-  useEffect(() => {
-    if(token['mytoken']){
-      history.push('/')
-    }
-  }, [token])
+  // useEffect(() => {
+  //   if(token['mytoken']){
+  //     history.push('/')
+  //   }
+  // }, [token])
 
-  const loginBtn = () => {
+  const loginBtn = (e) => {
+   e.preventDefault();
     APIService.LoginUser({username, password})
     .then((resp) => {
       setToken('mytoken', resp.token)
@@ -24,9 +25,10 @@ function SignIn(props) {
     .catch(error => console.log(error))
   }
 
+  if(!token['mytoken']){
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form" action="" onSubmit={loginBtn}>
+        <form className="Auth-form" >
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -58,7 +60,7 @@ function SignIn(props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <button onClick={e => loginBtn(e)} className="btn btn-primary">
                 Log In
               </button>
             </div>
@@ -69,6 +71,20 @@ function SignIn(props) {
         </form>
       </div>
     )
+  }
+  else {
+    return(
+      <div className="Auth-form-container">
+          <form className="Auth-form">
+            <div className="Auth-form-content">
+              <h3 className="Auth-form-title">Login successful</h3>
+              <p>Now you can upload images, videos, and virtual tours, or open your user profile to edit/delete existing ones</p>
+            </div>
+          </form>
+        </div>
+    )
+    
+  }
 }
 
 

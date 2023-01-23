@@ -44,8 +44,8 @@ code {
 
 .welcome_text_div{
   text-align: center;
-  padding: 4rem 1rem;
-  height: 50vh;
+  padding: 3rem 1rem;
+  height: 60vh;
   max-width: 1200px;
   margin: auto;
 }
@@ -53,14 +53,14 @@ code {
 @media (min-width: 420px) {
   .welcome_text_div{
     padding: 2rem;
-    height: 40vh;
+    height: 60vh;
   }
 }
 
 @media (min-width: 830px) {
   .welcome_text_div{
     padding: 3rem;
-    height: 30vh;
+    height: 40vh;
   }
 }
 
@@ -124,8 +124,10 @@ h1 {
 }  
 
 .card_image img {
+  min-width: 100%;
   max-width: 100%;
   min-height: 100%;
+  max-height: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0  !important;
 
@@ -320,10 +322,23 @@ h1 {
   font-weight: 800;
 }
 
+.Auth-form-content p {
+ text-align: center;
+}
+
 label {
   font-size: 14px;
   font-weight: 600;
   color: rgb(34, 34, 34);
+}
+
+.center_content{
+  
+}
+
+.button_anchor {
+  margin: auto;
+  display: flex;
 }
 
 

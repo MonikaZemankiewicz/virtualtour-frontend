@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
-import VideoDetails from '../components/VideoDetails';
+import VideoDetails from '../components/videos/VideoDetails';
 import { useParams } from "react-router-dom";
 
 function VideoDetailsPage() {
   const { id } = useParams()
-  const url = 'https://monikazemankiewicz.pythonanywhere.com/api/videos/'
+  const url = 'http://127.0.0.1:8000/api/videos/'
 
   const[video, setVideo] = useState([])
 

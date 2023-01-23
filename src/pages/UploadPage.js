@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import ImageUploadForm from '../components/ImageUploadForm'
-import VideoUploadForm from '../components/VideoUploadForm';
-import VirtualTourUploadForm from '../components/VirtualTourUploadForm';
+import ImageUploadForm from '../components/images/ImageUploadForm'
+import VideoUploadForm from '../components/videos/VideoUploadForm';
+import VirtualTourUploadForm from '../components/virtualtours/VirtualTourUploadForm';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 

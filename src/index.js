@@ -10,11 +10,13 @@ import AllImagesPage from './pages/AllImagesPage';
 import SignInPage from './pages/SignInPage';
 import ImageDetailsPage from './pages/ImageDetailsPage';
 import VideoDetailsPage from './pages/VideoDetailsPage';
+import VirtualTourDetailsPage from './pages/VirtualTourDetailsPage';
 import { CookiesProvider } from 'react-cookie';
 import ProfilePage from './pages/ProfilePage';
 import UploadPage from './pages/UploadPage';
 import SignOutPage from './pages/SignOutPage';
 import AllVirtualToursPage from './pages/AllVirtualToursPage';
+
 
 function Router() {
   return(
@@ -29,6 +31,7 @@ function Router() {
           <Route path = '/virtualtours' exact component = {AllVirtualToursPage}/>
           <Route path='/images/:id' component={ImageDetailsPage} />
           <Route path='/videos/:id' component={VideoDetailsPage} />
+          <Route path='/virtualtours/:id' component={VirtualTourDetailsPage} />
           <Route path='/profile' component={ProfilePage} />
           <Route path='/upload' component={UploadPage} />
         </Switch>

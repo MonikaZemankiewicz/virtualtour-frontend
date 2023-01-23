@@ -1,14 +1,14 @@
 import React from 'react'
-import '../index.css';
+import '../../index.css';
 import ProgressiveImage from 'react-progressive-image';
 
-function EditableVideoListItem(props) {
+function EditableVirtualTourListItem(props) {
         return (
             <li className="cards_item">
                 <div className="card image_card">
-                    <a className="overlay" href={'/videos/' + props.video.id}></a>
+                    <a className="overlay" href={'/virtualtours/' + props.virtualtour.id}></a>
                     <div className="card_image">
-                    <ProgressiveImage src={props.video.image} placeholder="tiny-image.jpg">
+                    <ProgressiveImage src={props.virtualtour.image} placeholder="tiny-image.jpg">
                         {src => (
                             <img src={src} alt="image" />
                         )}
@@ -16,10 +16,10 @@ function EditableVideoListItem(props) {
                         {/* <img src={props.image.image} loading="lazy"/> */}
                     </div>
                     <div className="card_content">
-                        <h2 className="card_title">{props.video.title}</h2>
-                        <p className="card_text">{props.video.description}</p>
+                        <h2 className="card_title">{props.virtualtour.title}</h2>
+                        <p className="card_text">{props.virtualtour.description}</p>
                         <div className="image_list_tags">
-                        {props.video.tags && props.video.tags.map((tag, index) => {
+                        {props.virtualtour.tags && props.virtualtour.tags.map((tag, index) => {
                             return(
                                 <span key={index}>#{tag}</span>
                             )
@@ -27,10 +27,10 @@ function EditableVideoListItem(props) {
                         </div>
                     </div>
                     <div className = 'edit_buttons_div'>
-                            <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.video)}>
+                            <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.virtualtour)}>
                                 Update
                             </button>
-                            <button className = "btn btn-sm delete_button" onClick = {() => props.deleteBtn(props.video)}>
+                            <button className = "btn btn-sm delete_button" onClick = {() => props.deleteBtn(props.virtualtour)}>
                                 Delete
                             </button>
                         </div>
@@ -43,4 +43,4 @@ function EditableVideoListItem(props) {
     }
 
 
-export default EditableVideoListItem
+export default EditableVirtualTourListItem

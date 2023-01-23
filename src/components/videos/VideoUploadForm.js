@@ -20,7 +20,7 @@ function VideoUploadForm(props) {
     form_data.append('description', description);
     form_data.append('owner', token['mytoken']);
     form_data.append('video', videoLink);
-    let url = 'http://https://monikazemankiewicz.pythonanywhere.com//api/videos/';
+    let url = 'http://127.0.0.1:8000/api/videos/';
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data',

@@ -1,7 +1,7 @@
 import React from 'react'
-import '../index.css';
+import '../../index.css';
 import EditableImageListItem from './EditableImageListItem'
-import APIService from '../APIService';
+import APIService from '../../APIService';
 import useCookies from 'react-cookie/cjs/useCookies';
 
 
