@@ -23,7 +23,7 @@ function ImageUploadForm(props) {
     axios.post(url, form_data, {
       headers: {
         'content-type': 'multipart/form-data',
-        'Authorization': `Token ${token['mytoken']}` 
+        'Authorization': 'Token 8427f0bfaf16ebda450f89f5988449f6cb67e17f' 
 
       }
     })
