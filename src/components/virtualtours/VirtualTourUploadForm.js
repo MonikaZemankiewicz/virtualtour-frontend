@@ -29,7 +29,10 @@ function VirtualTourUploadForm(props) {
       }
     })
         .then(res => {
-          console.log(res.data);
+          setTitle('')
+          setDescription('')
+          setVirtualTourLink('')
+          alert("Virtual Tour uploaded")
         })
         .catch(err => console.log(err))
   };

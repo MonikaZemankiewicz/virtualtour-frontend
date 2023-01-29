@@ -19,7 +19,6 @@ function AllVirtualToursPage() {
 
   const searchVirtualTours = () => {
     let searchedVirtualTours = []
-    console.log(searchValue)
     {virtualtours.map(virtualtour => {
       if(virtualtour.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || virtualtour.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
         searchedVirtualTours.push(virtualtour)

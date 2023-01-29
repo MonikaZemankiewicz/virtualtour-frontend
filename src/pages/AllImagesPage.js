@@ -19,7 +19,6 @@ function AllImages() {
 
   const searchImages = () => {
     let searchedImages = []
-    console.log(searchValue)
     {images.map(image => {
       if(image.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || image.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
         searchedImages.push(image)

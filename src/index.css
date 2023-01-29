@@ -421,6 +421,26 @@ label {
   margin-bottom: 2rem;
 }
 
+.username_div {
+  text-align: center;
+}
+
+.username_div h2 {
+  display: inline !important;
+  color: white;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.profile_page_icon {
+  display: inline;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+
+}
+
 
 /* Details page */
 .download_button_div {

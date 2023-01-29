@@ -29,7 +29,10 @@ function VideoUploadForm(props) {
       }
     })
         .then(res => {
-          console.log(res.data);
+          setTitle('')
+          setDescription('')
+          setVideoLink('')
+          alert("Video uploaded")
         })
         .catch(err => console.log(err))
   };

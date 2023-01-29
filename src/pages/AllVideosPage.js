@@ -18,7 +18,6 @@ function AllVideos() {
 
   const searchVideos = () => {
     let searchedVideos = []
-    console.log(searchValue)
     {videos.map(video => {
       if(video.title.toString().toLowerCase().includes(searchValue.toLowerCase()) || video.description.toString().toLowerCase().includes(searchValue.toLowerCase())){
         searchedVideos.push(video)

@@ -11,6 +11,8 @@ import EditVideoForm from '../components/videos/EditVideoForm'
 import EditVirtualTourForm from '../components/virtualtours/EditVirtualTourForm'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import profileicon from '../images/profile-icon.png'
+
 
 function ProfilePage() {
     const[images, setImages] = useState([])
@@ -36,8 +38,6 @@ function ProfilePage() {
         let ownerImages = []
         {resp.map(image => {
             if(image.owner == token['mytoken']){
-                console.log(image.owner)
-                console.log(token['mytoken'])
                 ownerImages.push(image)
             }
           })}
@@ -61,8 +61,6 @@ function ProfilePage() {
         let ownerVideos = []
         {resp.map(video => {
             if(video.owner == token['mytoken']){
-                console.log(video.owner)
-                console.log(token['mytoken'])
                 ownerVideos.push(video)
             }
           })}
@@ -86,8 +84,6 @@ function ProfilePage() {
         let ownerVirtualTours = []
         {resp.map(virtualtour => {
             if(virtualtour.owner == token['mytoken']){
-                console.log('Virtual tour owner: ' + virtualtour.owner)
-                console.log(token['mytoken'])
                 ownerVirtualTours.push(virtualtour)
             }
           })}
@@ -201,6 +197,11 @@ function ProfilePage() {
     return (
       <Layout>
         <div className='page'>
+        <div className = "username_div">
+          <img className = "profile_page_icon" src = {profileicon}></img>    
+          <h2 className='username'>{localStorage.getItem("username").toLocaleUpperCase()}</h2>  
+        </div>
+        <hr className='profile_heading_line'></hr>
         <h1 className='profile_heading'>My content</h1>  
         <hr className='profile_heading_line'></hr>
         <Tabs>

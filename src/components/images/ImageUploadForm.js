@@ -13,7 +13,6 @@ function ImageUploadForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(token['mytoken'])
     let form_data = new FormData();
     form_data.append('image', image, image.name);
     form_data.append('title', title);
@@ -28,7 +27,9 @@ function ImageUploadForm(props) {
       }
     })
         .then(res => {
-          console.log(res.data);
+          setTitle('')
+          setDescription('')
+          alert("Image uploaded")
         })
         .catch(err => console.log(err))
   };

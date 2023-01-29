@@ -10,7 +10,6 @@ function ImageDetails(props){
 
 
         const downloadImage = () => {
-            console.log(props.image.image)
           saveAs(props.image.image, 'download.png') // Put your image url here.
         }
 
