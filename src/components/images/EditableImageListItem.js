@@ -1,8 +1,19 @@
 import React from 'react'
 import '../../index.css';
+import { confirm } from "react-confirm-box";
 import ProgressiveImage from 'react-progressive-image';
 
 function EditableImageListItem(props) {
+
+    const confirmdelete = async (image) => {
+        // const result = await confirm("Are you sure?");
+        // if (result) {
+            props.deleteBtn(props.image)
+        //     return;
+        // }
+
+    }
+
         return (
             <li className="cards_item">
                 <div className="card image_card">
@@ -30,7 +41,7 @@ function EditableImageListItem(props) {
                             <button className = "btn btn-sm update_button" onClick = {() => props.editBtn(props.image)}>
                                 Update
                             </button>
-                            <button className = "btn btn-sm delete_button" onClick = {() => props.deleteBtn(props.image)}>
+                            <button className = "btn btn-sm delete_button" onClick = {() => confirmdelete(props.image)}>
                                 Delete
                             </button>
                         </div>

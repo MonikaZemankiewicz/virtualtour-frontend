@@ -11,12 +11,15 @@ export default function (props) {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   
 
   const registerBtn = () => {
     APIService.RegisterUser({username, password})
     .then(resp => console.log(resp))
-    .catch(error => console.log(error))
+    .catch(error => {
+      //console.log(error)
+    })
   }
 
   return (
@@ -56,7 +59,7 @@ export default function (props) {
             </button>
           </div>
           <p className="text-center mt-2">
-            Forgot <a href="#">password?</a>
+            {errorMessage}
           </p>
         </div>
       </form>
