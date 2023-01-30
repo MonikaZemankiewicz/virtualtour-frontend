@@ -17,7 +17,7 @@ function ImageDetails(props){
             <Row className="ContentItem">
              <Col xs="3"/>
                <Col xs="12" sm="6">
-                    <Card className='image_card'>
+                    <Card className='details_card'>
                         <Pannellum
                             width="100%"
                             height="500px"

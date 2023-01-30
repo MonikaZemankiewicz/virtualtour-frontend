@@ -14,7 +14,7 @@ function VirtualTourDetails(props) {
             <Row className="ContentItem">
              <Col xs="3"/>
                <Col xs="12" sm="6">
-                    <Card  className='image_card video_card'>
+                    <Card  className='details_card'>
                         <CardImg 
                             src={props.virtualtour.image}>                                 
                         </CardImg>

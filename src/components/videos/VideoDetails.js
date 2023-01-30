@@ -14,7 +14,7 @@ function VideoDetails(props) {
             <Row className="ContentItem">
              <Col xs="3"/>
                <Col xs="12" sm="6">
-                    <Card  className='image_card video_card'>
+                    <Card  className='details_card'>
                     <ReactPlayer url={props.video.video} className='video' />
 
                         <CardBody className='video_card_body'>
