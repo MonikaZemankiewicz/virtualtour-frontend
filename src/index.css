@@ -293,7 +293,7 @@ h1 {
 .video {
   margin: 0;
   padding: 0;
-  max-width: 750px !important;
+  /* max-width: 750px !important; */
   width: auto !important;
 }
 
