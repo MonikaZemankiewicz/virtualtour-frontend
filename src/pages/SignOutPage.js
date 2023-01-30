@@ -9,15 +9,10 @@ function SignOutPage() {
     let history = useHistory()
 
 
-    // useEffect(() => {
-    //     if(!token['mytoken']){
-    //       history.push('/')
-    //     }
-    //   }, [token])
-
     const logoutBtn = (e) => {
         // e.preventDefault()
         removeToken('mytoken',{path:'/'})
+        localStorage.removeItem("username")
         history.push('/')
       }
       return (

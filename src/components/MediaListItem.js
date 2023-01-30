@@ -1,5 +1,6 @@
 import React from 'react'
 import '../index.css';
+import profileicon from '../images/profile-icon.png'
 import ProgressiveImage from 'react-progressive-graceful-image';
 
 function MediaListItem(props) {
@@ -21,12 +22,9 @@ function MediaListItem(props) {
                     <div className="card_content">
                         <h2 className="card_title">{props.item.title}</h2>
                         <p className="card_text">{props.item.description}</p>
-                        <div className="image_list_tags">
-                        {props.item.tags && props.item.tags.map((tag, index) => {
-                            return(
-                                <span key={index}>#{tag}</span>
-                            )
-                        })}
+                        <div className="card_username_div">
+                            <img className = "icon_card" src = {profileicon}></img>    
+                            <p className='username_card'>{props.item.owner.toLocaleUpperCase()}</p>
                         </div>
                     </div>
 

@@ -12,6 +12,9 @@ import EditVirtualTourForm from '../components/virtualtours/EditVirtualTourForm'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import profileicon from '../images/profile-icon.png'
+import ImageUploadForm from '../components/images/ImageUploadForm'
+import VideoUploadForm from '../components/videos/VideoUploadForm';
+import VirtualTourUploadForm from '../components/virtualtours/VirtualTourUploadForm';
 
 
 function ProfilePage() {
@@ -37,7 +40,7 @@ function ProfilePage() {
       .then((resp) => {
         let ownerImages = []
         {resp.map(image => {
-            if(image.owner == token['mytoken']){
+            if(image.owner == localStorage.getItem("username")){
                 ownerImages.push(image)
             }
           })}
@@ -60,7 +63,7 @@ function ProfilePage() {
       .then((resp) => {
         let ownerVideos = []
         {resp.map(video => {
-            if(video.owner == token['mytoken']){
+            if(video.owner == localStorage.getItem("username")){
                 ownerVideos.push(video)
             }
           })}
@@ -83,7 +86,7 @@ function ProfilePage() {
       .then((resp) => {
         let ownerVirtualTours = []
         {resp.map(virtualtour => {
-            if(virtualtour.owner == token['mytoken']){
+            if(virtualtour.owner == localStorage.getItem("username")){
                 ownerVirtualTours.push(virtualtour)
             }
           })}
@@ -197,43 +200,60 @@ function ProfilePage() {
     return (
       <Layout>
         <div className='page'>
-        <div className = "username_div">
-          <img className = "profile_page_icon" src = {profileicon}></img>    
-          <h2 className='username'>{localStorage.getItem("username").toLocaleUpperCase()}</h2>  
-        </div>
-        <hr className='profile_heading_line'></hr>
-        <h1 className='profile_heading'>My content</h1>  
-        <hr className='profile_heading_line'></hr>
-        <Tabs>
+          <div className = "username_div">
+            <img className = "profile_page_icon" src = {profileicon}></img>    
+            <h2 className='username'>{localStorage.getItem("username").toLocaleUpperCase()}</h2>  
+          </div>
+          <hr className='profile_heading_line'></hr>
+          <h1 className='profile_heading'>My content</h1>  
+          <hr className='profile_heading_line'></hr>
+          <Tabs>
+              <TabList>
+                <Tab>Images</Tab>
+                <Tab>Videos</Tab>
+                <Tab>Virtual Tours</Tab>
+              </TabList>
+              <TabPanel>
+                {editImage ? 
+                    <EditImageForm image = {editImage} updatedInformation = {updatedInformationImages} closeForm = {closeForm}></EditImageForm>
+                    : null
+                }
+                <EditableImageList images = {images} editBtn = {editImageBtn} deleteBtn={deleteImageBtn}></EditableImageList>
+              </TabPanel>
+              <TabPanel>
+                {editVideo ? 
+                    <EditVideoForm video = {editVideo} updatedInformation = {updatedInformationVideos} closeForm = {closeForm}></EditVideoForm>
+                    : null
+                }
+                <EditableVideoList videos = {videos} editBtn = {editVideoBtn} deleteBtn={deleteVideoBtn}></EditableVideoList>
+              </TabPanel>
+              <TabPanel>
+                {editVirtualTour ? 
+                    <EditVirtualTourForm virtualtour = {editVirtualTour} updatedInformation = {updatedInformationVirtualTours} closeForm = {closeForm}></EditVirtualTourForm>
+                    : null
+                }
+                <EditableVirtualTourList virtualtours = {virtualtours} editBtn = {editVirtualTourBtn} deleteBtn={deleteVirtualTourBtn}></EditableVirtualTourList>
+              </TabPanel>
+            </Tabs>  
+          <h1 className='profile_heading'>Upload</h1>  
+          <hr className='profile_heading_line'></hr>
+          <Tabs>
             <TabList>
-              <Tab>Images</Tab>
-              <Tab>Videos</Tab>
-              <Tab>Virtual Tours</Tab>
-            </TabList>
+              <Tab>Image</Tab>
+              <Tab>Video</Tab>
+              <Tab>Virtual Tour</Tab>
+            </TabList> 
             <TabPanel>
-              {editImage ? 
-                  <EditImageForm image = {editImage} updatedInformation = {updatedInformationImages} closeForm = {closeForm}></EditImageForm>
-                  : null
-              }
-              <EditableImageList images = {images} editBtn = {editImageBtn} deleteBtn={deleteImageBtn}></EditableImageList>
+              <ImageUploadForm/>
             </TabPanel>
             <TabPanel>
-              {editVideo ? 
-                  <EditVideoForm video = {editVideo} updatedInformation = {updatedInformationVideos} closeForm = {closeForm}></EditVideoForm>
-                  : null
-              }
-              <EditableVideoList videos = {videos} editBtn = {editVideoBtn} deleteBtn={deleteVideoBtn}></EditableVideoList>
+              <VideoUploadForm/>
             </TabPanel>
             <TabPanel>
-              {editVirtualTour ? 
-                  <EditVirtualTourForm virtualtour = {editVirtualTour} updatedInformation = {updatedInformationVirtualTours} closeForm = {closeForm}></EditVirtualTourForm>
-                  : null
-              }
-              <EditableVirtualTourList virtualtours = {virtualtours} editBtn = {editVirtualTourBtn} deleteBtn={deleteVirtualTourBtn}></EditableVirtualTourList>
+              <VirtualTourUploadForm/>
             </TabPanel>
           </Tabs>           
-        </div>
-          
+        </div>       
       </Layout>
     )
 }
