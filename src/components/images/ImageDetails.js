@@ -3,6 +3,8 @@ import { Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardFooter } fr
 import '../../index.css';
 import { Pannellum } from "pannellum-react";
 import { saveAs } from 'file-saver'
+import profileicon from '../../images/profile-icon.png'
+
 
 
 
@@ -36,6 +38,12 @@ function ImageDetails(props){
                             <CardText className='details_card_description'>
                                 {props.image.description}
                             </CardText>
+                            <div className="card_username_div">
+                                <img className = "icon_card" src = {profileicon}></img>    
+                                <p className='username_card'>{props.image.owner}</p>
+                            </div>
+                            <hr className='profile_heading_line'></hr>
+
                             <div className='download_button_div'>
                                 <button 
                                     className='btn btn-success update_image_button download_button'
