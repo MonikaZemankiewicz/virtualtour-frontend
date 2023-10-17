@@ -12,10 +12,12 @@ It provides features such as:
 
 ![Use Case diagram](/website_screenshots/UC.png)
 
-## 360 Interactive image viewer:
+## Example screenshots from the website:
+
+### 360 Interactive image viewer:
 
 ![Image viewer](/website_screenshots/imagedetailsdesktop.PNG)
 
-## Gallery of videos:
+### Gallery of videos:
 
 ![Gallery](/website_screenshots/allvideospage.png)
