@@ -1,4 +1,4 @@
-# Website for sharing and viewing 360 media
+# Website for sharing 360 media
 
 The goal of this project was to design and develop a website that allows its users to share,
 view, and download 360-degree media. The website was built with React and Django.
