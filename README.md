@@ -1,4 +1,12 @@
-# Website for sharing and viewing 360 images, videos and virtual tours, with built in interactive 360 image viewer.
+# Website for sharing and viewing 360 media
+
+The goal of this project was to design and develop a website that allows its users to share,
+view, and download 360-degree media. The website was built with React and Django.
+It provides features such as:
+- uploading your own images, videos and virtual tours
+- viewing uploaded images with built in interactive 360 image viewer
+- viewing shared media of other users (with search option)
+
 
 ## Use case diagram for the website:
 
@@ -10,4 +18,4 @@
 
 ## Gallery of videos:
 
-![Gallery](/website_screenshots/allvideospage.PNG)
+![Gallery](/website_screenshots/allvideospage.png)
