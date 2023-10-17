@@ -21,3 +21,12 @@ It provides features such as:
 ### Gallery of videos:
 
 ![Gallery](/website_screenshots/allvideospage.png)
+
+### Profile page with media uploaded by the current active user:
+
+![profile](/website_screenshots/profilepage.png)
+
+### File upload form: 
+
+![upload](/website_screenshots/uploadpagedesktop.PNG)
+
